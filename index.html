@@ -12,9 +12,9 @@
         
         .container { width: 100%; max-width: 400px; display: flex; flex-direction: column; align-items: center; }
         
-        /* Логотип заведения */
+        /* Логотип заведения по макету Gemini_Generated_Image_ (4).png */
         .logo-section { text-align: center; margin-bottom: 35px; width: 100%; }
-        .vector-logo { width: 130px; height: 130px; filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.4)); }
+        .vector-logo { width: 140px; height: 140px; filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.4)); }
         .welcome-text { font-size: 11px; font-weight: 400; color: #8e94a0; letter-spacing: 3px; text-transform: uppercase; margin-top: 5px; }
 
         /* Кнопки главного меню */
@@ -46,10 +46,11 @@
         .category-title { font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #c5a059; margin-bottom: 12px; border-left: 2px solid #c5a059; padding-left: 8px; }
         .sub-category-title { font-size: 12px; font-weight: 600; font-style: italic; color: #8e94a0; margin: 10px 0 5px 5px; }
         
-        .menu-item { display: flex; justify-content: space-between; align-items: baseline; font-size: 13px; margin-bottom: 8px; padding: 0 5px; }
-        .item-name { color: #e0e0e0; font-weight: 400; padding-right: 5px; }
+        .menu-item { display: flex; justify-content: space-between; align-items: baseline; font-size: 13px; margin-bottom: 4px; padding: 0 5px; }
+        .item-name { color: #e0e0e0; font-weight: 600; text-transform: uppercase; padding-right: 5px; letter-spacing: 0.5px; }
         .item-dots { flex-grow: 1; border-bottom: 1px dotted rgba(255,255,255,0.1); margin: 0 5px; }
-        .item-price { font-weight: 600; color: #ffffff; white-space: nowrap; }
+        .item-price { font-weight: 600; color: #c5a059; white-space: nowrap; }
+        .item-desc { font-size: 11px; color: #8e94a0; font-style: italic; padding: 0 5px 12px 5px; line-height: 1.4; }
         .item-volume { font-size: 10px; color: #777; font-weight: normal; }
 
         /* Специальные плашки для кальянов/акций */
@@ -65,10 +66,10 @@
         /* Подвал и обновленные адаптивные соцсети */
         .footer { display: flex; flex-direction: column; align-items: center; gap: 15px; margin-top: auto; width: 100%; padding-top: 20px; }
         .social-icons { display: flex; gap: 24px; }
-        .social-link { display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 50%; background: #1c1f26; border: 1px solid rgba(255, 255, 255, 0.05); color: #c5a059; transition: all 0.2s ease; }
+        .social-link { display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 50%; background: #1c1f26; border: 1px solid rgba(255, 255, 255, 0.05); color: #ffffff; transition: all 0.2s ease; }
         .social-link:active { background: #15181e; transform: scale(0.95); }
         
-        /* Точные адаптивные размеры SVG из макетов оригинальных иконок */
+        /* Иконки по макетам image_f8cde5.png и image_f8ce2b.png */
         .social-link svg { width: 24px; height: 24px; fill: currentColor; }
         .copyright { font-size: 9px; color: #4a4f5a; letter-spacing: 1px; text-transform: uppercase; margin-top: 5px; }
     </style>
@@ -76,7 +77,7 @@
 <body>
 
     <div class="container">
-        <!-- Логотип заведения -->
+        <!-- Логотип заведения в точности по макету Gemini_Generated_Image_ (4).png -->
         <div class="logo-section">
             <svg class="vector-logo" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
@@ -85,6 +86,7 @@
                     </linearGradient>
                 </defs>
                 <circle cx="100" cy="100" r="85" stroke="url(#gold)" stroke-width="2" />
+                <circle cx="100" cy="100" r="81" stroke="url(#gold)" stroke-width="0.5" stroke-opacity="0.5" />
                 <text x="100" y="96" font-family="'Cormorant Garamond', serif" font-size="34" font-weight="600" fill="url(#gold)" text-anchor="middle" letter-spacing="3">ВОЛНА</text>
                 <g stroke="url(#gold)" stroke-width="1.2" stroke-linecap="round">
                     <path d="M22 110 C 50 125, 75 95, 120 115 C 150 128, 165 110, 178 110" />
@@ -116,7 +118,7 @@
             <!-- Выезжающее Основное Меню -->
             <div id="lounge-menu" class="menu-collapse">
                 <div class="menu-section">
-                    <div class="menu-main-title">Основное меню</div>
+                    <div class="menu-main-title">Меню Заведения</div>
 
                     <!-- Паровые кальяны -->
                     <div class="category-block">
@@ -171,49 +173,73 @@
             <!-- Кнопка 4: Триггер барного меню -->
             <div onclick="toggleMenu('bar-menu', this)" class="btn btn-standard btn-menu">
                 <span class="btn-title" style="font-weight:600;">Коктейльная и барная карта</span>
-                <span class="btn-subtitle" style="color:rgba(197,160,89,0.7);">Чай, кофе, лимонады и пиво</span>
+                <span class="btn-subtitle" style="color:rgba(197,160,89,0.7);">Чай, лимонады и алкогольная карта</span>
             </div>
 
-            <!-- Выезжающее Барное Меню -->
+            <!-- Выезжающее Барное Меню со второго макета Code_Generated_Image.jpg -->
             <div id="bar-menu" class="menu-collapse">
                 <div class="menu-section">
                     <div class="menu-main-title">Барная карта</div>
 
-                    <!-- Чай -->
+                    <!-- Алкогольные Коктейли -->
                     <div class="category-block">
-                        <div class="category-title">Чай <span class="item-volume">0.5 / 0.8л</span></div>
-                        <div class="menu-item"><span class="item-name">Черный / Красный / Зеленый</span><span class="item-dots"></span><span class="item-price">300/350₽</span></div>
-                        <div class="menu-item"><span class="item-name">Травяной / Не чай</span><span class="item-dots"></span><span class="item-price">300/350₽</span></div>
-                        <div class="menu-item"><span class="item-name">Китайский листовой / Габа</span><span class="item-dots"></span><span class="item-price">350/450₽</span></div>
+                        <div class="category-title">Коктейли</div>
                         
-                        <div class="sub-category-title">Крафтовый чай (0.8л) — 450₽</div>
-                        <div style="font-size:11px; color:#8e94a0; padding-left:5px; line-height:1.4;">
-                            Киви-яблоко-грейпфрут, Облепиха-имбирь, Клюква-апельсин, Черника-мята, Смородина-апельсин, Вишневый пуэр.
-                        </div>
+                        <div class="menu-item"><span class="item-name">Итальянский прилив</span><span class="item-dots"></span><span class="item-price">600 ₽</span></div>
+                        <div class="item-desc">Аперитив Апероль, игристое вино брют, содовая, долька апельсина</div>
+
+                        <div class="menu-item"><span class="item-name">Звезда горизонта</span><span class="item-dots"></span><span class="item-price">600 ₽</span></div>
+                        <div class="item-desc">Ванильная основа, ликёр маракуйя, игристое брют, ваниль, сок лайма</div>
+
+                        <div class="menu-item"><span class="item-name">Девятый вал</span><span class="item-dots"></span><span class="item-price">600 ₽</span></div>
+                        <div class="item-desc">Водка, сухой джин, ром, текила, цитрусовый ликер трипл сек, кола</div>
+
+                        <div class="menu-item"><span class="item-name">Морской узел</span><span class="item-dots"></span><span class="item-price">600 ₽</span></div>
+                        <div class="item-desc">Сухой лондонский джин, горький кампари, красный сладкий вермут</div>
+
+                        <div class="menu-item"><span class="item-name">Мятный бриз</span><span class="item-dots"></span><span class="item-price">450 ₽</span></div>
+                        <div class="item-desc">Светлый ром, спрайт, сочный лайм, свежая мята</div>
+
+                        <div class="menu-item"><span class="item-name">Рубиновый прилив</span><span class="item-dots"></span><span class="item-price">450 ₽</span></div>
+                        <div class="item-desc">Красный итальянский вермут Мартини Фиеро, классический тоник</div>
+
+                        <div class="menu-item"><span class="item-name">Янтарная глубина</span><span class="item-dots"></span><span class="item-price">450 ₽</span></div>
+                        <div class="item-desc">Выдержанный купажированный виски, кола</div>
+
+                        <div class="menu-item"><span class="item-name">Карибская ночь</span><span class="item-dots"></span><span class="item-price">450 ₽</span></div>
+                        <div class="item-desc">Светлый ром, кола, сок лайма</div>
+
+                        <div class="menu-item"><span class="item-name">Можжевеловый штиль</span><span class="item-dots"></span><span class="item-price">450 ₽</span></div>
+                        <div class="item-desc">Сухой лондонский джин, классический тоник, слайс огурца</div>
+
+                        <div class="menu-item"><span class="item-name">Травяное цунами</span><span class="item-dots"></span><span class="item-price">450 ₽</span></div>
+                        <div class="item-desc">Немецкий ликёр на травах Ягермейстер, энергетик</div>
                     </div>
 
-                    <!-- Лимонады и кофе -->
+                    <!-- Шот Сеты -->
                     <div class="category-block">
-                        <div class="category-title">Лимонады <span class="item-volume">0.3 / 1л</span></div>
-                        <div class="menu-item"><span class="item-name">Фирменные в ассортименте</span><span class="item-dots"></span><span class="item-price">300/800₽</span></div>
-                        <div style="font-size:10px; color:#777; padding-left:5px;">Земляника-ананас, Клубника-базилик, Гранат-малина, Черника-мята, Киви-яблоко.</div>
+                        <div class="category-title">Shot Sets <span class="item-volume">(сет из 6 шт)</span></div>
+                        
+                        <div class="menu-item"><span class="item-name">Лазурный штиль</span><span class="item-dots"></span><span class="item-price">800 ₽</span></div>
+                        <div class="item-desc">Легендарное трио: водка, груша, зелёное яблоко</div>
 
-                        <div class="category-title" style="margin-top:20px;">Кофе & Десерты</div>
-                        <div class="menu-item"><span class="item-name">Эспрессо / Американо</span><span class="item-dots"></span><span class="item-price">190/200₽</span></div>
-                        <div class="menu-item"><span class="item-name">Капучино / Латте / Айс Латте</span><span class="item-dots"></span><span class="item-price">250₽</span></div>
-                        <div class="menu-item"><span class="item-name">Медовик / Чизкейки в асс.</span><span class="item-dots"></span><span class="item-price">430/370₽</span></div>
+                        <div class="menu-item"><span class="item-name">Унесенные ветром</span><span class="item-dots"></span><span class="item-price">800 ₽</span></div>
+                        <div class="item-desc">Сухой джин, малина, мята, яблоко</div>
                     </div>
 
-                    <!-- Пиво -->
+                    <!-- Экстремальная подача -->
                     <div class="category-block">
-                        <div class="category-title">Пиво</div>
-                        <div class="sub-category-title">Светлое / Темное — от 300₽</div>
-                        <div class="menu-item"><span class="item-name">Бад, Шпатен, Стелла Артуа, Эль Капулько</span><span class="item-price">300₽</span></div>
-                        <div class="menu-item"><span class="item-name">Ловенбрау, Хугарден, Бланш, Устюжна</span><span class="item-price">300/350₽</span></div>
-                        <div class="sub-category-title">Крафтовое, Вкусовое & Б/А</div>
-                        <div class="menu-item"><span class="item-name">ИПА (Крафт)</span><span class="item-dots"></span><span class="item-price">400₽</span></div>
-                        <div class="menu-item"><span class="item-name">Честер / Хугарден (Вкусовое)</span><span class="item-dots"></span><span class="item-price">300₽</span></div>
-                        <div class="menu-item"><span class="item-name">Безалкогольное пиво в ассортименте</span><span class="item-dots"></span><span class="item-price">300₽</span></div>
+                        <div class="category-title">Экстремальная подача</div>
+                        
+                        <div class="menu-item"><span class="item-name">Морской эшелон <span class="item-volume" style="color:#c5a059;">(подача только на баре)</span></span><span class="item-dots"></span><span class="item-price">400 ₽</span></div>
+                        <div class="item-desc">Легендарный Б-52: три идеальных слоя ликеров</div>
+                    </div>
+
+                    <!-- Безалкогольный базовый блок -->
+                    <div class="category-block">
+                        <div class="category-title">Чай & Лимонады</div>
+                        <div class="menu-item"><span class="item-name">Классический чай в асс. (0.5/0.8л)</span><span class="item-price">300/350₽</span></div>
+                        <div class="menu-item"><span class="item-name">Фирменные лимонады (0.3/1л)</span><span class="item-price">300/800₽</span></div>
                     </div>
                 </div>
             </div>
@@ -222,17 +248,18 @@
         <!-- Подвал -->
         <div class="footer">
             <div class="social-icons">
-                <!-- VK (Премиальная точная векторная копия image_f8ce2b.png) -->
+                <!-- VK в точности по контурам круга из image_f8ce2b.png -->
                 <a href="https://vk.com/wave_lounge" target="_blank" class="social-link" aria-label="ВКонтакте">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.323 15.397c-.167.368-.58.555-1.02.555h-1.378c-.378 0-.693-.135-.91-.393-.244-.265-.506-.576-.757-.887a20.5 20.5 0 0 0-.61-.726c-.23-.153-.414-.103-.54.095a2.535 2.535 0 0 0-.256.848c-.035.397-.183.627-.514.67-.704.072-1.383-.06-1.996-.402-.681-.366-1.226-.893-1.688-1.517-.674-.836-1.189-1.782-1.593-2.775-.154-.367-.044-.657.306-.677h1.492c.249.006.444.131.543.393.313.793.729 1.516 1.258 2.164.156.182.316.347.533.424.238.08.437-.01.521-.264.144-.403.176-.826.155-1.25-.03-.55-.205-.9-.675-1.09-.168-.066-.145-.138-.063-.223a.513.513 0 0 1 .442-.178h2.247c.307.037.518.2.57.514.126.657.062 1.312-.11 1.957-.066.257.01.424.256.494.195.053.348-.04.475-.164a10.962 10.962 0 0 0 1.226-1.583c.18-.344.33-.69.46-1.047.07-.225.215-.353.475-.36h1.488c.4 0 .647.214.531.623-.155.514-.406.974-.693 1.425a13.383 13.383 0 0 1-.955 1.282c-.253.253-.243.39.04.629.414.391.839.775 1.22 1.218.181.205.342.42.49.67.194.332.052.684-.287.7z"/>
+                    <svg viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="48" fill="#1c1f26" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+                        <path d="M50 4C24.6 4 4 24.6 4 50s20.6 24.6 24.6 24.6S96 55.4 96 50 75.4 4 50 4zm16.5 13.9c.5.5.4 1.1-.2 1.1h-1.8c-.5 0-.9-.2-1.2-.5-.3-.3-.7-.8-1.1-1.2a27.6 27.6 0 0 0-.9-.9c-.3-.2-.5-.1-.7.2a3.6 3.6 0 0 0-.4 1.2c0 .5-.2.8-.7.9-.9.1-1.9-.1-2.7-.5-.9-.5-1.6-1.2-2.3-2.1-.9-1.1-1.6-2.4-2.2-3.7-.2-.5 0-.9.4-.9h2c.3 0 .6.2.7.5.4 1.1 1 2.1 1.7 3 .2.2.4.5.7.6.3.1.6 0 .7-.4.2-.5.2-1.1.2-1.7 0-.7-.3-1.2-.9-1.5-.2-.1-.2-.2-.1-.4a.7.7 0 0 1 .6-.2h3.1c.4 0 .7.3.8.7.1.9.1 1.8-.2 2.6-.1.4 0 .6.3.7.3.1.5-.1.7-.3a15 15 0 0 0 1.6-2.2c.2-.5.4-1 .6-1.5.1-.3.3-.5.6-.5h2.1c.6 0 .9.3.8.8-.2.7-.6 1.4-1 2-.4.6-.8 1.1-1.2 1.6-.3.3-.3.5 0 .8.4.5.8 1 1.2 1.5.2.3.4.6.6.9.2.4 0 .9-.4.9z" fill="#c5a059"/>
                     </svg>
                 </a>
-                <!-- Instagram (Премиальная точная векторная копия image_f8cde5.png) -->
+                <!-- Instagram в точности по контурам скругленного квадрата из image_f8cde5.png -->
                 <a href="https://www.instagram.com/wavelounge35?igsh=MWUwMHE3a3dqdThi" target="_blank" class="social-link" aria-label="Instagram">
-                    <svg viewBox="0 0 512 512">
-                        <path d="M349.33 64H162.67C108.27 64 64 108.27 64 162.67v186.66C64 403.73 108.27 448 162.67 448h186.66C403.73 448 448 403.73 448 349.33V162.67C448 108.27 403.73 64 349.33 64zm64 285.33c0 35.2-28.8 64-64 64H162.67c-35.2 0-64-28.8-64-64V162.67c0-35.2 28.8-64 64-64h186.66c35.2 0 64 28.8 64 64v186.66z"/>
-                        <path d="M256 160c-53 0-96 43-96 96s43 96 96 96 96-43 96-96-43-96-96-96zm0 160c-35.3 0-64-28.7-64-64s28.7-64 64-64 64 28.7 64 64-28.7 64-64 64zm112-160c0 13.255-10.745 24-24 24s-24-10.745-24-24 10.745-24 24-24 24 10.745 24 24z"/>
+                    <svg viewBox="0 0 100 100">
+                        <path d="M72 16H28c-6.6 0-12 5.4-12 12v44c0 6.6 5.4 12 12 12h44c6.6 0 12-5.4 12-12V28c0-6.6-5.4-12-12-12zm8 56c0 4.4-3.6 8-8 8H28c-4.4 0-8-3.6-8-8V28c0-4.4 3.6-8 8-8h44c4.4 0 8 3.6 8 8v44z" fill="#c5a059"/>
+                        <path d="M50 33c-9.4 0-17 7.6-17 17s7.6 17 17 17 17-7.6 17-17-7.6-17-17-17zm0 28c-6.1 0-11-4.9-11-11s4.9-11 11-11 11 4.9 11 11-4.9 11-11 11zM73 24a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9z" fill="#c5a059"/>
                     </svg>
                 </a>
             </div>
@@ -240,32 +267,27 @@
         </div>
     </div>
 
-    <!-- Умный скрипт плавного открытия и скролла -->
     <script>
         function toggleMenu(menuId, buttonEl) {
             const menu = document.getElementById(menuId);
             const isOpening = !menu.classList.contains('open');
             
-            // Закрываем все открытые разделы меню для чистоты интерфейса
             document.querySelectorAll('.menu-collapse').forEach(el => {
                 el.style.maxHeight = null;
                 el.classList.remove('open');
             });
             document.querySelectorAll('.btn-menu').forEach(el => el.classList.remove('open'));
 
-            // Если открываем текущий
             if (isOpening) {
                 menu.classList.add('open');
                 buttonEl.classList.add('open');
                 menu.style.maxHeight = menu.scrollHeight + "px";
                 
-                // Плавный автоматический скролл к открывшемуся меню
                 setTimeout(() => {
                     menu.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                 }, 300);
             }
         }
     </script>
-    
 </body>
 </html>
