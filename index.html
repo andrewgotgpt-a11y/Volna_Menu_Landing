@@ -32,18 +32,9 @@
         .btn-promo { background: #1c1f26; color: #ffffff; border: 1px solid #c5a059; box-shadow: 0 4px 20px rgba(197, 160, 89, 0.12); }
         .btn-promo .btn-title { color: #c5a059; font-weight: 600; }
         .btn-standard { background: #1c1f26; color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.05); }
-        .btn-menu { background: linear-gradient(135deg, #1c1f26 0%, #15181e 100%); border: 1px solid rgba(197, 160, 89, 0.3); }
+        .btn-menu { background: linear-gradient(135deg, #1c1f26 0%, #15181e 100%); border: 1px solid rgba(197, 160, 89, 0.3); margin-bottom: 5px; }
+        .btn-menu:last-of-type { margin-bottom: 20px; }
         
-        /* Кнопка чаевых Яндекс */
-        .btn-tips { background: linear-gradient(135deg, #9a7432 0%, #c5a059 100%); color: #111317; font-weight: 700; border: none; margin-bottom: 30px; box-shadow: 0 6px 20px rgba(197, 160, 89, 0.25); animation: pulseGlow 2.5s infinite ease-in-out; }
-        .btn-tips .btn-subtitle { color: #222a3a; font-weight: 500; }
-        
-        @keyframes pulseGlow {
-            0% { box-shadow: 0 4px 15px rgba(197, 160, 89, 0.2); }
-            50% { box-shadow: 0 6px 25px rgba(197, 160, 89, 0.45); }
-            100% { box-shadow: 0 4px 15px rgba(197, 160, 89, 0.2); }
-        }
-
         /* Стрелочки-индикаторы главного меню */
         .btn-menu::before { content: "▼"; position: absolute; right: 20px; color: rgba(197, 160, 89, 0.5); font-size: 10px; transition: transform 0.3s ease; }
         .btn-menu.open::before { transform: rotate(180deg); color: #c5a059; }
@@ -74,8 +65,8 @@
         .category-title { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #c5a059; margin-bottom: 12px; border-left: 2px solid #c5a059; padding-left: 8px; }
         .sub-category-title { font-size: 11px; font-weight: 600; font-style: italic; color: #8e94a0; margin: 10px 0 6px 5px; text-transform: uppercase; letter-spacing: 0.5px; }
         
-        .menu-item { display: flex; justify-content: space-between; align-items: baseline; font-size: 13px; margin-bottom: 4px; padding: 0 5px; }
-        .item-name { color: #e0e0e0; font-weight: 600; text-transform: uppercase; padding-right: 5px; letter-spacing: 0.5px; }
+        .menu-item { display: flex; justify-content: space-between; align-items: baseline; font-size: 13px; margin-bottom: 6px; padding: 0 5px; }
+        .item-name { color: #e0e0e0; font-weight: 500; padding-right: 5px; }
         
         /* Вкусовые теги-маркеры для коктейлей */
         .taste-tag { font-size: 10px; color: #c5a059; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; background: rgba(197, 160, 89, 0.08); padding: 2px 6px; border-radius: 4px; display: inline-block; margin: 2px 0 6px 5px; }
@@ -97,7 +88,7 @@
         .promo-day { color: #c5a059; font-weight: 600; }
 
         /* Подвал и соцсети */
-        .footer { display: flex; flex-direction: column; align-items: center; gap: 15px; margin-top: auto; width: 100%; padding-top: 10px; }
+        .footer { display: flex; flex-direction: column; align-items: center; gap: 15px; margin-top: auto; width: 100%; padding-top: 20px; }
         .social-icons { display: flex; gap: 24px; }
         .social-link { display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; background: #1c1f26; border: 1px solid rgba(255, 255, 255, 0.05); color: #c5a059; transition: all 0.2s ease; }
         .social-link:active { background: #15181e; transform: scale(0.95); }
@@ -213,7 +204,7 @@
                             <div class="promo-item"><span class="promo-day">Вторник:</span> каждый 3-й паровой коктейль — <strong style="color:#c5a059;">бесплатно</strong></div>
                             <div class="promo-item"><span class="promo-day">Женская среда:</span> специальные условия для компаний девушек</div>
                             <div class="promo-item"><span class="promo-day">Мужской четверг:</span> при заказе от 3-х пива, 1 закуска — <strong style="color:#c5a059;">бесплатно</strong></div>
-                            <div class="promo-item"><span class="promo-day">День рождения:</span> скидка 10% (день в день, день до и после)</div>
+                            <div class="promo-item"><span class="promo-day">День рождения:</span> скидка 10% (day in day, день до и после)</div>
                             <div class="promo-item"><span class="promo-day">За баром:</span> постоянная скидка 10% для гостей у стойки</div>
                         </div>
                     </div>
@@ -238,7 +229,7 @@
                         </div>
                         
                         <div id="alco-sub" class="sub-menu-collapse">
-                            <!-- Коктейли + Вкусовые теги-маркеры -->
+                            <!-- Коктейли -->
                             <div class="category-block">
                                 <div class="category-title">Коктейли</div>
                                 
@@ -336,15 +327,15 @@
                         </div>
                         
                         <div id="bezalco-sub" class="sub-menu-collapse">
-                            <!-- Лимонады -->
+                            <!-- Обновленные Лимонады -->
                             <div class="category-block">
                                 <div class="category-title">Лимонад <span class="item-volume">0,3 / 1л</span></div>
-                                <div class="menu-item"><span class="item-name">Земляника-ананас</span><span class="item-dots"></span><span class="item-price">300р/800р</span></div>
-                                <div class="menu-item"><span class="item-name">Клубника-базилик</span><span class="item-dots"></span><span class="item-price">300р/800р</span></div>
-                                <div class="menu-item"><span class="item-name">Гранат-малина</span><span class="item-dots"></span><span class="item-price">300р/800р</span></div>
-                                <div class="menu-item"><span class="item-name">Черника-мята</span><span class="item-dots"></span><span class="item-price">300р/800р</span></div>
-                                <div class="menu-item"><span class="item-name">Ежевика-фиалка</span><span class="item-dots"></span><span class="item-price">300р/800р</span></div>
-                                <div class="menu-item"><span class="item-name">Киви-яблоко</span><span class="item-dots"></span><span class="item-price">300р/800р</span></div>
+                                <div class="menu-item"><span class="item-name">Киви мята</span><span class="item-dots"></span><span class="item-price">300р/800р</span></div>
+                                <div class="menu-item"><span class="item-name">Черника мята</span><span class="item-dots"></span><span class="item-price">300р/800р</span></div>
+                                <div class="menu-item"><span class="item-name">Гранат малина</span><span class="item-dots"></span><span class="item-price">300р/800р</span></div>
+                                <div class="menu-item"><span class="item-name">Ежевика фиалка</span><span class="item-dots"></span><span class="item-price">300р/800р</span></div>
+                                <div class="menu-item"><span class="item-name">Манго ананас</span><span class="item-dots"></span><span class="item-price">300р/800р</span></div>
+                                <div class="menu-item"><span class="item-name">Личи лемонграсс</span><span class="item-dots"></span><span class="item-price">300р/800р</span></div>
                             </div>
 
                             <!-- Чай -->
@@ -359,15 +350,13 @@
                                 <div class="menu-item"><span class="item-name">Китайский чай Габа</span><span class="item-dots"></span><span class="item-price">450р</span></div>
                             </div>
 
-                            <!-- Крафтовый чай -->
+                            <!-- Обновленный Крафтовый чай -->
                             <div class="category-block">
                                 <div class="category-title">Крафтовый чай <span class="item-volume">0,8л</span></div>
-                                <div class="menu-item"><span class="item-name">Киви-яблоко-грейпфрут</span><span class="item-dots"></span><span class="item-price">450р</span></div>
-                                <div class="menu-item"><span class="item-name">Облепиха-имбирь</span><span class="item-dots"></span><span class="item-price">450р</span></div>
-                                <div class="menu-item"><span class="item-name">Клюква-апельсин</span><span class="item-dots"></span><span class="item-price">450р</span></div>
-                                <div class="menu-item"><span class="item-name">Черника-мята</span><span class="item-dots"></span><span class="item-price">450р</span></div>
-                                <div class="menu-item"><span class="item-name">Смородина-апельсин</span><span class="item-dots"></span><span class="item-price">450р</span></div>
-                                <div class="menu-item"><span class="item-name">Вишневый пуэр</span><span class="item-dots"></span><span class="item-price">450р</span></div>
+                                <div class="menu-item"><span class="item-name">Киви яблоко</span><span class="item-dots"></span><span class="item-price">450р</span></div>
+                                <div class="menu-item"><span class="item-name">Облепиха груша</span><span class="item-dots"></span><span class="item-price">450р</span></div>
+                                <div class="menu-item"><span class="item-name">Клюква апельсин</span><span class="item-dots"></span><span class="item-price">450р</span></div>
+                                <div class="menu-item"><span class="item-name">Черника мята</span><span class="item-dots"></span><span class="item-price">450р</span></div>
                             </div>
 
                             <!-- Кофе -->
@@ -397,24 +386,18 @@
 
                 </div>
             </div>
-            
-            <!-- КНОПКА ФИНАЛЬНОГО БЛОКА: ЯНДЕКС ЧАЕВЫЕ (Вариант 1) -->
-            <a href="ССЫЛКА_НА_ЯНДЕКС_ЧАЕВЫЕ" target="_blank" class="btn btn-tips">
-                <span style="font-size: 15px;">Поблагодарить команду</span>
-                <span class="btn-subtitle">Оставить быстрые чаевые через Яндекс</span>
-            </a>
         </div>
 
         <!-- Подвал -->
         <div class="footer">
             <div class="social-icons">
-                <!-- VK Строгий монограммный квадрат в точности по image_fa2387.png -->
+                <!-- VK Строгий монограммный квадрат -->
                 <a href="https://vk.com/wave_lounge" target="_blank" class="social-link" style="border-radius: 6px;" aria-label="ВКонтакте">
                     <svg viewBox="0 0 24 24">
                         <path d="M22 0H2C.9 0 0 .9 0 2v20c0 1.1.9 2 2 2h20c1.1 0 2-.9 2-2V2c0-1.1-.9-2-2-2zM17.81 14.15c.57.55 1.17 1.08 1.69 1.69.24.26.45.54.63.85.25.43.09.89-.33.91h-1.84c-.51.03-.93-.15-1.28-.54-.35-.38-.67-.78-1-1.18-.21-.26-.44-.51-.73-.65-.39-.19-.73-.1-.95.24-.24.37-.3.77-.32 1.19-.03.44-.2.72-.63.77-.89.1-1.73-.07-2.52-.48-.94-.49-1.69-1.21-2.32-2.04-.98-1.29-1.68-2.73-2.25-4.22-.2-.42-.06-.75.4-.77h1.85c.36.01.63.19.76.54.42 1.06.98 2.02 1.74 2.87.21.24.43.45.71.55.35.12.64-.01.76-.36.18-.5.23-1.01.2-1.53-.04-.74-.27-1.24-.86-1.48-.21-.09-.18-.17-.09-.28.14-.15.37-.24.61-.24h2.9c.41.04.7.24.78.65.16.85.1 1.7-.11 2.54-.08.33.03.54.34.64.26.08.47-.04.64-.21.6-.6 1.06-1.31 1.45-2.07.22-.43.38-.88.54-1.34.09-.27.28-.44.57-.45h1.87c.54 0 .86.26.71.54-.19.45-.53.85-.92 1.24-.36.34-.76.65-1.19.99-.29.22-.28.34.03.55.36.34.73.67 1.06 1.06.16.18.3.37.43.58.17.29.05.6-.25.61z"/>
                     </svg>
                 </a>
-                <!-- Instagram по image_f8cde5.png -->
+                <!-- Instagram -->
                 <a href="https://www.instagram.com/wavelounge35?igsh=MWUwMHE3a3dqdThi" target="_blank" class="social-link" style="border-radius: 50%;" aria-label="Instagram">
                     <svg viewBox="0 0 512 512">
                         <path d="M349.33 64H162.67C108.27 64 64 108.27 64 162.67v186.66C64 403.73 108.27 448 162.67 448h186.66C403.73 448 448 403.73 448 349.33V162.67C448 108.27 403.73 64 349.33 64zm64 285.33c0 35.2-28.8 64-64 64H162.67c-35.2 0-64-28.8-64-64V162.67c0-35.2 28.8-64 64-64h186.66c35.2 0 64 28.8 64 64v186.66z"/>
