@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Меню Волна Лаундж</title>
     
-    <!-- Подключение файла PWA манифеста и иконок -->
+    <!-- Подключение PWA манифеста и иконки Apple -->
     <link rel="manifest" href="manifest.json">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <meta name="apple-mobile-web-app-title" content="Волна">
+    <meta name="apple-mobile-web-app-title" content="Меню Волна Лаундж">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="mobile-web-app-capable" content="yes">
@@ -40,7 +40,7 @@
         .btn-menu::before { content: "▼"; position: absolute; right: 20px; color: rgba(197, 160, 89, 0.5); font-size: 10px; transition: transform 0.3s ease; }
         .btn-menu.open::before { transform: rotate(180deg); color: #c5a059; }
         
-        /* Кнопки 2-го уровня (вложенное меню) */
+        /* Кнопки 2-го уровня */
         .sub-btn-grid { display: flex; flex-direction: column; gap: 10px; padding: 5px 0 10px 0; }
         .btn-sub { background: #1c1f26; border: 1px solid rgba(255, 255, 255, 0.08); padding: 12px 15px; border-radius: 8px; font-size: 13px; font-weight: 600; color: #ffffff; letter-spacing: 0.5px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: all 0.2s ease; }
         .btn-sub span.arrow { font-size: 9px; color: rgba(197, 160, 89, 0.6); transition: transform 0.3s ease; }
@@ -56,7 +56,7 @@
         .btn:active, .btn-sub:active, .btn-level3:active { transform: scale(0.98); }
         .btn-subtitle { font-size: 10px; color: #8e94a0; margin-top: 3px; font-weight: 400; }
 
-        /* Анимационные контейнеры для раскрытия */
+        /* Анимационные контейнеры */
         .menu-collapse, .sub-menu-collapse, .level3-collapse { width: 100%; max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
         .menu-collapse.open { margin-bottom: 20px; }
         .sub-menu-collapse.open { border-top: 1px dashed rgba(197, 160, 89, 0.15); padding-top: 15px; margin-bottom: 10px; }
@@ -90,7 +90,7 @@
         .hookah-price { font-weight: 700; color: #c5a059; font-size: 15px; }
         .hookah-time { font-size: 9px; color: #8e94a0; text-transform: uppercase; margin-top: 2px; }
 
-        /* Главный блок Акций на домашнем экране */
+        /* Главный блок Акций */
         .promos-card { width: 100%; background: #16191f; border: 1px solid rgba(197, 160, 89, 0.25); border-radius: 16px; padding: 18px 15px; margin-top: 5px; margin-bottom: 25px; }
         .promos-title { font-size: 15px; font-weight: 700; color: #c5a059; text-transform: uppercase; letter-spacing: 1.5px; text-align: center; margin-bottom: 14px; border-bottom: 1px solid rgba(197, 160, 89, 0.15); padding-bottom: 8px; }
         .promo-item { font-size: 12px; margin-bottom: 9px; line-height: 1.45; color: #e0e0e0; padding-left: 10px; border-left: 2px solid rgba(197, 160, 89, 0.4); }
@@ -150,7 +150,7 @@
                 <span class="btn-subtitle" style="color:rgba(197,160,89,0.7);">Кальяны, закуски и десерты</span>
             </div>
 
-            <!-- Выезжающее Меню Заведения (теперь выпадающим списком) -->
+            <!-- Выезжающее Меню Заведения -->
             <div id="lounge-menu" class="menu-collapse">
                 <div class="menu-section" style="padding: 15px 10px;">
                     <div class="menu-main-title" style="margin-bottom: 15px;">Меню Заведения</div>
@@ -158,7 +158,7 @@
                     <div class="sub-btn-grid">
                         <!-- ПОД-КНОПКА 1: КАЛЬЯНЫ -->
                         <div onclick="toggleSubMenu('hookah-sub', this)" class="btn-sub">
-                            <span>💨 Паровые коктейли</span><span class="arrow">▼</span>
+                            <span>Паровые коктейли</span><span class="arrow">▼</span>
                         </div>
                         <div id="hookah-sub" class="sub-menu-collapse">
                             <div class="highlight-block">
@@ -181,7 +181,7 @@
 
                         <!-- ПОД-КНОПКА 2: ЗАКУСКИ & ФРИТЮР -->
                         <div onclick="toggleSubMenu('snacks-sub', this)" class="btn-sub">
-                            <span>🍟 Закуски & Горячий Фритюр</span><span class="arrow">▼</span>
+                            <span>Закуски & Горячий Фритюр</span><span class="arrow">▼</span>
                         </div>
                         <div id="snacks-sub" class="sub-menu-collapse">
                             <div class="category-block">
@@ -211,7 +211,7 @@
 
                         <!-- ПОД-КНОПКА 3: ДЕСЕРТЫ -->
                         <div onclick="toggleSubMenu('desserts-sub', this)" class="btn-sub">
-                            <span>🍰 Десерты</span><span class="arrow">▼</span>
+                            <span>Десерты</span><span class="arrow">▼</span>
                         </div>
                         <div id="desserts-sub" class="sub-menu-collapse">
                             <div class="category-block">
@@ -242,9 +242,9 @@
                         </div>
                         
                         <div id="alco-sub" class="sub-menu-collapse">
-                            <!-- Коктейли -->
+                            <!-- Коктейли (Без бага срезания высоты) -->
                             <div onclick="toggleLevel3('cocktails-l3', this)" class="btn-level3">
-                                <span>🍸 Фирменные Коктейли (10 видов)</span><span class="arrow">▼</span>
+                                <span>Фирменные коктейли</span><span class="arrow">▼</span>
                             </div>
                             <div id="cocktails-l3" class="level3-collapse">
                                 <div class="menu-item"><span class="item-name">Итальянский прилив</span><span class="item-dots"></span><span class="item-price">600 ₽</span></div>
@@ -290,7 +290,7 @@
 
                             <!-- Шот сеты -->
                             <div onclick="toggleLevel3('shots-l3', this)" class="btn-level3">
-                                <span>🎯 Шот Сеты & Экстремальная подача</span><span class="arrow">▼</span>
+                                <span>Шот сеты & Экстремальная подача</span><span class="arrow">▼</span>
                             </div>
                             <div id="shots-l3" class="level3-collapse">
                                 <div class="menu-item"><span class="item-name">Лазурный штиль <span class="item-volume">(сет из 6)</span></span><span class="item-dots"></span><span class="item-price">800 ₽</span></div>
@@ -305,7 +305,7 @@
 
                             <!-- Пиво -->
                             <div onclick="toggleLevel3('beer-l3', this)" class="btn-level3">
-                                <span>🍺 Пивная карта</span><span class="arrow">▼</span>
+                                <span>Пивная карта</span><span class="arrow">▼</span>
                             </div>
                             <div id="beer-l3" class="level3-collapse">
                                 <div class="sub-category-title">Светлое</div>
@@ -344,7 +344,7 @@
                         <div id="bezalco-sub" class="sub-menu-collapse">
                             <!-- Чайная коллекция -->
                             <div onclick="toggleLevel3('tea-l3', this)" class="btn-level3">
-                                <span>🫖 Чайная карта</span><span class="arrow">▼</span>
+                                <span>Чайная карта</span><span class="arrow">▼</span>
                             </div>
                             <div id="tea-l3" class="level3-collapse">
                                 <div class="menu-item"><span class="item-name">Черный <span class="item-volume">(0,5/0,8)</span></span><span class="item-dots"></span><span class="item-price">300/350p</span></div>
@@ -377,7 +377,7 @@
 
                             <!-- Лимонады -->
                             <div onclick="toggleLevel3('lemonade-l3', this)" class="btn-level3">
-                                <span>🍹 Лимонад <span class="item-volume">(0,3/1л — 300p/800p)</span></span><span class="arrow">▼</span>
+                                <span>Лимонад <span class="item-volume">(0,3/1л — 300p/800p)</span></span><span class="arrow">▼</span>
                             </div>
                             <div id="lemonade-l3" class="level3-collapse">
                                 <div class="menu-item"><span class="item-name">Личи-лемонграсс</span></div>
@@ -389,7 +389,7 @@
 
                             <!-- Кофе & Напитки -->
                             <div onclick="toggleLevel3('coffee-l3', this)" class="btn-level3">
-                                <span>☕ Кофе & Б/А Напитки</span><span class="arrow">▼</span>
+                                <span>Кофе & Б/А Напитки</span><span class="arrow">▼</span>
                             </div>
                             <div id="coffee-l3" class="level3-collapse">
                                 <div class="sub-category-title">Кофе</div>
@@ -415,7 +415,7 @@
             </div>
         </div>
 
-        <!-- Раздел "Наши Акции" вынесен прямо на Главный Экран -->
+        <!-- Раздел "Наши Акции" -->
         <div class="promos-card">
             <div class="promos-title">Наши Акции</div>
             <div class="promo-item"><span class="promo-day">Вторник:</span> каждый 3-й паровой коктейль — <strong style="color:#c5a059;">бесплатно</strong></div>
@@ -446,13 +446,14 @@
         </div>
     </div>
 
-    <!-- Умный скрипт многоуровневых аккордеонов -->
+    <!-- Улучшенный скрипт без срезания высоты -->
     <script>
         function refreshParentHeights(element) {
             let current = element.parentElement;
             while (current && !current.classList.contains('container')) {
                 if (current.classList.contains('menu-collapse') || current.classList.contains('sub-menu-collapse') || current.classList.contains('level3-collapse')) {
-                    current.style.maxHeight = current.scrollHeight + 500 + "px";
+                    // Увеличиваем динамический запас высоты до 3000px, чтобы длинные списки не резались
+                    current.style.maxHeight = current.scrollHeight + 3000 + "px";
                 }
                 current = current.parentElement;
             }
@@ -471,7 +472,7 @@
             if (isOpening) {
                 menu.classList.add('open');
                 buttonEl.classList.add('open');
-                menu.style.maxHeight = menu.scrollHeight + 1000 + "px";
+                menu.style.maxHeight = menu.scrollHeight + 2000 + "px";
                 
                 setTimeout(() => {
                     buttonEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -494,7 +495,7 @@
             if (isOpening) {
                 subMenu.classList.add('open');
                 subButtonEl.classList.add('open');
-                subMenu.style.maxHeight = subMenu.scrollHeight + 800 + "px";
+                subMenu.style.maxHeight = subMenu.scrollHeight + 2000 + "px";
                 refreshParentHeights(subMenu);
                 
                 setTimeout(() => {
@@ -520,7 +521,7 @@
             if (isOpening) {
                 l3Menu.classList.add('open');
                 l3ButtonEl.classList.add('open');
-                l3Menu.style.maxHeight = l3Menu.scrollHeight + 400 + "px";
+                l3Menu.style.maxHeight = l3Menu.scrollHeight + 2000 + "px";
                 refreshParentHeights(l3Menu);
 
                 setTimeout(() => {
