@@ -36,6 +36,17 @@
         .btn-standard { background: #1c1f26; color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.05); }
         .btn-menu { background: linear-gradient(135deg, #1c1f26 0%, #15181e 100%); border: 1px solid rgba(197, 160, 89, 0.3); }
         
+        /* Кнопка чаевых CloudTips */
+        .btn-tips { background: linear-gradient(135deg, #9a7432 0%, #c5a059 100%); color: #111317; font-weight: 700; border: none; box-shadow: 0 6px 20px rgba(197, 160, 89, 0.25); animation: pulseGlow 2.5s infinite ease-in-out; }
+        .btn-tips .btn-title { color: #111317; font-weight: 700; }
+        .btn-tips .btn-subtitle { color: #222a3a; font-weight: 500; }
+        
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 4px 15px rgba(197, 160, 89, 0.2); }
+            50% { box-shadow: 0 6px 25px rgba(197, 160, 89, 0.45); }
+            100% { box-shadow: 0 4px 15px rgba(197, 160, 89, 0.2); }
+        }
+
         /* Индикаторы стрелочек */
         .btn-menu::before { content: "▼"; position: absolute; right: 20px; color: rgba(197, 160, 89, 0.5); font-size: 10px; transition: transform 0.3s ease; }
         .btn-menu.open::before { transform: rotate(180deg); color: #c5a059; }
@@ -242,7 +253,7 @@
                         </div>
                         
                         <div id="alco-sub" class="sub-menu-collapse">
-                            <!-- Коктейли (Без бага срезания высоты) -->
+                            <!-- Коктейли -->
                             <div onclick="toggleLevel3('cocktails-l3', this)" class="btn-level3">
                                 <span>Фирменные коктейли</span><span class="arrow">▼</span>
                             </div>
@@ -413,6 +424,12 @@
 
                 </div>
             </div>
+
+            <!-- Кнопка 5: Чаевые CloudTips -->
+            <a href="https://pay.cloudtips.ru/p/79aaf6e6" target="_blank" class="btn btn-tips">
+                <span class="btn-title">Оставить чаевые персоналу</span>
+                <span class="btn-subtitle">Быстрая благодарность команде через CloudTips</span>
+            </a>
         </div>
 
         <!-- Раздел "Наши Акции" -->
@@ -446,13 +463,12 @@
         </div>
     </div>
 
-    <!-- Улучшенный скрипт без срезания высоты -->
+    <!-- Умный скрипт выпадающих списков -->
     <script>
         function refreshParentHeights(element) {
             let current = element.parentElement;
             while (current && !current.classList.contains('container')) {
                 if (current.classList.contains('menu-collapse') || current.classList.contains('sub-menu-collapse') || current.classList.contains('level3-collapse')) {
-                    // Увеличиваем динамический запас высоты до 3000px, чтобы длинные списки не резались
                     current.style.maxHeight = current.scrollHeight + 3000 + "px";
                 }
                 current = current.parentElement;
