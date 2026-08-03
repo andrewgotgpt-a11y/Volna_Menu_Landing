@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Меню Волна Лаундж</title>
     
+    <!-- Подключение PWA манифеста и иконки Apple -->
     <link rel="manifest" href="manifest.json">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <meta name="apple-mobile-web-app-title" content="Меню Волна Лаундж">
@@ -60,12 +61,10 @@
         .btn-level3.open { background: rgba(197, 160, 89, 0.08); border-style: solid; }
         .btn-level3.open span.arrow { transform: rotate(180deg); }
 
-        /* Особая яркая подсветка для Устюженской пивоварни */
-        .btn-level3.special-brew { background: linear-gradient(135deg, rgba(197, 160, 89, 0.15) 0%, rgba(28, 31, 38, 0.8) 100%); border: 1px solid #c5a059; color: #f3e1b9; font-weight: 600; box-shadow: 0 0 12px rgba(197, 160, 89, 0.15); }
-
         .btn:active, .btn-sub:active, .btn-level3:active { transform: scale(0.98); }
         .btn-subtitle { font-size: 10px; color: #8e94a0; margin-top: 3px; font-weight: 400; }
 
+        /* Плавные выезжающие контейнеры */
         .menu-collapse, .sub-menu-collapse, .level3-collapse { width: 100%; max-height: 0; overflow: hidden; transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1); }
         .menu-collapse.open { margin-bottom: 20px; }
         .sub-menu-collapse.open { border-top: 1px dashed rgba(197, 160, 89, 0.15); padding-top: 15px; margin-bottom: 10px; }
@@ -78,6 +77,9 @@
         .category-block:last-child { margin-bottom: 0; }
         .category-title { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #c5a059; margin-bottom: 12px; border-left: 2px solid #c5a059; padding-left: 8px; }
         .sub-category-title { font-size: 11px; font-weight: 600; font-style: italic; color: #8e94a0; margin: 10px 0 6px 5px; text-transform: uppercase; letter-spacing: 0.5px; }
+        
+        /* Выделенный заголовок для Устюженской Пивоварни */
+        .sub-category-title.special-brew-title { color: #f3e1b9; border-bottom: 1px solid rgba(197, 160, 89, 0.3); padding-bottom: 3px; font-style: normal; font-weight: 700; margin-top: 10px; margin-bottom: 8px; }
         
         .menu-item { display: flex; justify-content: space-between; align-items: baseline; font-size: 13px; margin-bottom: 6px; padding: 0 5px; }
         .item-name { color: #e0e0e0; font-weight: 500; padding-right: 5px; }
@@ -113,6 +115,7 @@
 <body>
 
     <div class="container">
+        <!-- Логотип заведения -->
         <div class="logo-section">
             <svg class="vector-logo" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
@@ -135,6 +138,7 @@
             <div class="welcome-text">Volna Lounge</div>
         </div>
 
+        <!-- Кнопки главного интерфейса -->
         <div class="buttons-grid">
             <a href="https://yandex.ru/maps/-/CPhgiUll" target="_blank" class="btn btn-promo">
                 <span class="btn-title">Получи скидку 10% за отзыв</span>
@@ -146,16 +150,19 @@
                 <span class="btn-subtitle">Гостевая сеть: Wave</span>
             </a>
 
+            <!-- Кнопка 3: Главное меню заведения -->
             <div onclick="toggleMainMenu('lounge-menu', this)" class="btn btn-standard btn-menu">
                 <span class="btn-title" style="font-weight:600;">Открыть онлайн-меню</span>
                 <span class="btn-subtitle" style="color:rgba(197,160,89,0.7);">Кальяны, закуски и десерты</span>
             </div>
 
+            <!-- Выезжающее Меню Заведения -->
             <div id="lounge-menu" class="menu-collapse">
                 <div class="menu-section" style="padding: 15px 10px;">
                     <div class="menu-main-title" style="margin-bottom: 15px;">Меню Заведения</div>
 
                     <div class="sub-btn-grid">
+                        <!-- ПОД-КНОПКА 1: КАЛЬЯНЫ -->
                         <div onclick="toggleSubMenu('hookah-sub', this)" class="btn-sub">
                             <span>Паровые коктейли</span><span class="arrow">▼</span>
                         </div>
@@ -175,10 +182,11 @@
                                     </div>
                                 </div>
                                 <div style="font-size:10px; color:#c5a059; text-align:center; margin-top:10px; font-weight:500;">В выходные и праздники цены весь день: 1000₽ / 1200₽</div>
-                                <div style="font-size:9px; color:#777; text-align:center; margin-top:6px; font-style:italic;">*перезабивка парового коктейля 600₽</div>
+                                <div style="font-size:9px; color:#777; text-align:center; margin-top:6px; font-style:italic;">*перезабивка выполняется на классическом табаке — 600₽</div>
                             </div>
                         </div>
 
+                        <!-- ПОД-КНОПКА 2: ЗАКУСКИ & ФРИТЮР -->
                         <div onclick="toggleSubMenu('snacks-sub', this)" class="btn-sub">
                             <span>Закуски & Горячий Фритюр</span><span class="arrow">▼</span>
                         </div>
@@ -208,6 +216,7 @@
                             </div>
                         </div>
 
+                        <!-- ПОД-КНОПКА 3: ДЕСЕРТЫ -->
                         <div onclick="toggleSubMenu('desserts-sub', this)" class="btn-sub">
                             <span>Десерты</span><span class="arrow">▼</span>
                         </div>
@@ -222,31 +231,25 @@
                 </div>
             </div>
 
+            <!-- Кнопка 4: Барное меню -->
             <div onclick="toggleMainMenu('bar-menu', this)" class="btn btn-standard btn-menu">
                 <span class="btn-title" style="font-weight:600;">Коктейльная и барная карта</span>
                 <span class="btn-subtitle" style="color:rgba(197,160,89,0.7);">Алкогольные и безалкогольные напитки</span>
             </div>
 
+            <!-- Выезжающее Барное Меню -->
             <div id="bar-menu" class="menu-collapse">
                 <div class="menu-section" style="padding: 15px 10px;">
                     <div class="menu-main-title" style="margin-bottom: 15px;">Барная карта</div>
 
                     <div class="sub-btn-grid">
+                        <!-- ПОД-КНОПКА 1: АЛКОГОЛЬ -->
                         <div onclick="toggleSubMenu('alco-sub', this)" class="btn-sub">
                             <span>Алкогольная карта</span><span class="arrow">▼</span>
                         </div>
                         
                         <div id="alco-sub" class="sub-menu-collapse">
-                            <!-- Устюженская Пивоварня (Выделена ярче) -->
-                            <div onclick="toggleLevel3('brewery-l3', this)" class="btn-level3 special-brew">
-                                <span>Устюженская Пивоварня</span><span class="arrow">▼</span>
-                            </div>
-                            <div id="brewery-l3" class="level3-collapse">
-                                <div class="menu-item"><span class="item-name">Устюжна <span class="item-volume">(Нефильтр.)</span></span><span class="item-dots"></span><span class="item-price">300p</span></div>
-                                <div class="menu-item"><span class="item-name">Русское <span class="item-volume">(Нефильтр.)</span></span><span class="item-dots"></span><span class="item-price">300p</span></div>
-                                <div class="menu-item"><span class="item-name">Роттенбир <span class="item-volume">(Нефильтр.)</span></span><span class="item-dots"></span><span class="item-price">300p</span></div>
-                            </div>
-
+                            <!-- Коктейли -->
                             <div onclick="toggleLevel3('cocktails-l3', this)" class="btn-level3">
                                 <span>Фирменные коктейли</span><span class="arrow">▼</span>
                             </div>
@@ -292,6 +295,7 @@
                                 <div class="item-desc">Немецкий ликёр на травах Ягермейстер, энергетик</div>
                             </div>
 
+                            <!-- Шот сеты -->
                             <div onclick="toggleLevel3('shots-l3', this)" class="btn-level3">
                                 <span>Шот сеты & Экстремальная подача</span><span class="arrow">▼</span>
                             </div>
@@ -303,13 +307,22 @@
                                 <div class="item-desc">Сухой джин, малина, мята, яблоко</div>
                                 
                                 <div class="menu-item"><span class="item-name">Морской эшелон</span><span class="item-dots"></span><span class="item-price">400 ₽</span></div>
-                                <div class="item-desc" style="margin-bottom:0; padding-bottom:0;">Б-52: три идеальных слоя ликеров (подача на баре)</div>
+                                <div class="item-desc">Б-52: три идеальных слоя ликеров (подача на баре)</div>
+
+                                <div class="menu-item"><span class="item-name">Высший Эшелон</span><span class="item-dots"></span><span class="item-price">450 ₽</span></div>
+                                <div class="item-desc" style="margin-bottom:0; padding-bottom:0;">Б-53: крепость и богатый аромат (подача на баре)</div>
                             </div>
 
+                            <!-- Пиво (С выделенным разделом Устюженская пивоварня) -->
                             <div onclick="toggleLevel3('beer-l3', this)" class="btn-level3">
                                 <span>Пивная карта</span><span class="arrow">▼</span>
                             </div>
                             <div id="beer-l3" class="level3-collapse">
+                                <div class="sub-category-title special-brew-title">Устюженская Пивоварня</div>
+                                <div class="menu-item"><span class="item-name">Устюжна <span class="item-volume">(Нефильтр.)</span></span><span class="item-dots"></span><span class="item-price">300p</span></div>
+                                <div class="menu-item"><span class="item-name">Русское <span class="item-volume">(Нефильтр.)</span></span><span class="item-dots"></span><span class="item-price">300p</span></div>
+                                <div class="menu-item"><span class="item-name">Роттенбир <span class="item-volume">(Нефильтр.)</span></span><span class="item-dots"></span><span class="item-price">300p</span></div>
+
                                 <div class="sub-category-title">Светлое</div>
                                 <div class="menu-item"><span class="item-name">Бад <span class="item-volume">(Фильтр.)</span></span><span class="item-dots"></span><span class="item-price">300p</span></div>
                                 <div class="menu-item"><span class="item-name">Шпатен <span class="item-volume">(Фильтр.)</span></span><span class="item-dots"></span><span class="item-price">300p</span></div>
@@ -322,7 +335,7 @@
                                 
                                 <div class="sub-category-title">Темное</div>
                                 <div class="menu-item"><span class="item-name">Ловенбрау</span><span class="item-dots"></span><span class="item-price">300p</span></div>
-                                <div class="menu-item"><span class="item-name">Rewort Balkan Pearl <span class="item-volume">(Шоколадный стаут)</span></span><span class="item-dots"></span><span class="item-price">400p</span></div>
+                                <div class="menu-item"><span class="item-name">Реворт Balkan Pearl <span class="item-volume">(Шоколадный стаут)</span></span><span class="item-dots"></span><span class="item-price">400p</span></div>
 
                                 <div class="sub-category-title">Вкусовое</div>
                                 <div class="menu-item"><span class="item-name">Хугарден</span><span class="item-dots"></span><span class="item-price">300p</span></div>
@@ -339,11 +352,13 @@
                             </div>
                         </div>
 
+                        <!-- ПОД-КНОПКА 2: БЕЗАЛКОГОЛЬНЫЕ НАПИТКИ -->
                         <div onclick="toggleSubMenu('bezalco-sub', this)" class="btn-sub">
                             <span>Безалкогольные напитки</span><span class="arrow">▼</span>
                         </div>
                         
                         <div id="bezalco-sub" class="sub-menu-collapse">
+                            <!-- Чайная коллекция -->
                             <div onclick="toggleLevel3('tea-l3', this)" class="btn-level3">
                                 <span>Чайная карта</span><span class="arrow">▼</span>
                             </div>
@@ -377,19 +392,21 @@
                                 <div class="menu-item"><span class="item-name">Пуэр Малина-Гранат</span></div>
                             </div>
 
+                            <!-- Лимонады (Мохито перенесен в конец) -->
                             <div onclick="toggleLevel3('lemonade-l3', this)" class="btn-level3">
                                 <span>Лимонад <span class="item-volume">(0,3/1л — 300p/800p)</span></span><span class="arrow">▼</span>
                             </div>
                             <div id="lemonade-l3" class="level3-collapse">
                                 <div class="menu-item"><span class="item-name">Гранат-Малина</span></div>
-                                <div class="menu-item"><span class="item-name">Мохито</span></div>
                                 <div class="menu-item"><span class="item-name">Личи-лемонграсс</span></div>
                                 <div class="menu-item"><span class="item-name">Ежевика-фиалка</span></div>
                                 <div class="menu-item"><span class="item-name">Манго-ананас</span></div>
                                 <div class="menu-item"><span class="item-name">Черника-мята</span></div>
                                 <div class="menu-item"><span class="item-name">Киви-мята</span></div>
+                                <div class="menu-item"><span class="item-name">Мохито</span></div>
                             </div>
 
+                            <!-- Кофе & Напитки -->
                             <div onclick="toggleLevel3('coffee-l3', this)" class="btn-level3">
                                 <span>Кофе & Б/А Напитки</span><span class="arrow">▼</span>
                             </div>
@@ -416,12 +433,14 @@
                 </div>
             </div>
 
+            <!-- Кнопка чаевых CloudTips -->
             <a href="https://pay.cloudtips.ru/p/79aaf6e6" target="_blank" class="btn btn-tips">
                 <span class="btn-title">Оставить чаевые персоналу</span>
                 <span class="btn-subtitle">Быстрая благодарность команде через CloudTips</span>
             </a>
         </div>
 
+        <!-- Блок Акций -->
         <div class="promos-card">
             <div class="promos-title">Наши Акции</div>
             <div class="promo-item"><span class="promo-day">Вторник:</span> каждый 3-й паровой коктейль — <strong style="color:#c5a059;">бесплатно</strong></div>
@@ -431,6 +450,7 @@
             <div class="promo-item"><span class="promo-day">За баром:</span> постоянная скидка 10% для гостей у стойки</div>
         </div>
 
+        <!-- Подвал -->
         <div class="footer">
             <div class="social-icons">
                 <a href="https://vk.com/wave_lounge" target="_blank" class="social-link" style="border-radius: 6px;" aria-label="ВКонтакте">
@@ -449,13 +469,17 @@
         </div>
     </div>
 
-    <!-- Оптимизированный плавный скрипт аккордеонов -->
+    <!-- Полностью исправленный точный скрипт высчитывания высоты -->
     <script>
-        function refreshParentHeights(element) {
-            let current = element.parentElement;
+        function updateParentHeights(el) {
+            let current = el.parentElement;
             while (current && !current.classList.contains('container')) {
-                if (current.classList.contains('menu-collapse') || current.classList.contains('sub-menu-collapse') || current.classList.contains('level3-collapse')) {
-                    current.style.maxHeight = current.scrollHeight + 1500 + "px";
+                if (current.classList.contains('menu-collapse') || 
+                    current.classList.contains('sub-menu-collapse') || 
+                    current.classList.contains('level3-collapse')) {
+                    if (current.classList.contains('open')) {
+                        current.style.maxHeight = current.scrollHeight + "px";
+                    }
                 }
                 current = current.parentElement;
             }
@@ -474,11 +498,7 @@
             if (isOpening) {
                 menu.classList.add('open');
                 buttonEl.classList.add('open');
-                menu.style.maxHeight = menu.scrollHeight + 1500 + "px";
-                
-                setTimeout(() => {
-                    buttonEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }, 250);
+                menu.style.maxHeight = menu.scrollHeight + "px";
             }
         }
 
@@ -497,14 +517,10 @@
             if (isOpening) {
                 subMenu.classList.add('open');
                 subButtonEl.classList.add('open');
-                subMenu.style.maxHeight = subMenu.scrollHeight + 1500 + "px";
-                refreshParentHeights(subMenu);
-                
-                setTimeout(() => {
-                    subButtonEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                }, 200);
+                subMenu.style.maxHeight = subMenu.scrollHeight + "px";
+                updateParentHeights(subMenu);
             } else {
-                refreshParentHeights(subMenu);
+                updateParentHeights(subMenu);
             }
         }
 
@@ -523,14 +539,10 @@
             if (isOpening) {
                 l3Menu.classList.add('open');
                 l3ButtonEl.classList.add('open');
-                l3Menu.style.maxHeight = l3Menu.scrollHeight + 800 + "px";
-                refreshParentHeights(l3Menu);
-
-                setTimeout(() => {
-                    l3ButtonEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                }, 200);
+                l3Menu.style.maxHeight = l3Menu.scrollHeight + "px";
+                updateParentHeights(l3Menu);
             } else {
-                refreshParentHeights(l3Menu);
+                updateParentHeights(l3Menu);
             }
         }
     </script>
