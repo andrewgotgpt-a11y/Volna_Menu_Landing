@@ -64,8 +64,8 @@
         .btn:active, .btn-sub:active, .btn-level3:active { transform: scale(0.98); }
         .btn-subtitle { font-size: 10px; color: #8e94a0; margin-top: 3px; font-weight: 400; }
 
-        /* Плавные выезжающие контейнеры */
-        .menu-collapse, .sub-menu-collapse, .level3-collapse { width: 100%; max-height: 0; overflow: hidden; transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1); }
+        /* Плавные выезжающие контейнеры с динамической высотой */
+        .menu-collapse, .sub-menu-collapse, .level3-collapse { width: 100%; max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
         .menu-collapse.open { margin-bottom: 20px; }
         .sub-menu-collapse.open { border-top: 1px dashed rgba(197, 160, 89, 0.15); padding-top: 15px; margin-bottom: 10px; }
         .level3-collapse.open { padding: 5px 0 10px 8px; }
@@ -78,7 +78,6 @@
         .category-title { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #c5a059; margin-bottom: 12px; border-left: 2px solid #c5a059; padding-left: 8px; }
         .sub-category-title { font-size: 11px; font-weight: 600; font-style: italic; color: #8e94a0; margin: 10px 0 6px 5px; text-transform: uppercase; letter-spacing: 0.5px; }
         
-        /* Выделенный заголовок для Устюженской Пивоварни */
         .sub-category-title.special-brew-title { color: #f3e1b9; border-bottom: 1px solid rgba(197, 160, 89, 0.3); padding-bottom: 3px; font-style: normal; font-weight: 700; margin-top: 10px; margin-bottom: 8px; }
         
         .menu-item { display: flex; justify-content: space-between; align-items: baseline; font-size: 13px; margin-bottom: 6px; padding: 0 5px; }
@@ -313,7 +312,7 @@
                                 <div class="item-desc" style="margin-bottom:0; padding-bottom:0;">Б-53: крепость и богатый аромат (подача на баре)</div>
                             </div>
 
-                            <!-- Пиво (С выделенным разделом Устюженская пивоварня) -->
+                            <!-- Пиво -->
                             <div onclick="toggleLevel3('beer-l3', this)" class="btn-level3">
                                 <span>Пивная карта</span><span class="arrow">▼</span>
                             </div>
@@ -358,7 +357,6 @@
                         </div>
                         
                         <div id="bezalco-sub" class="sub-menu-collapse">
-                            <!-- Чайная коллекция -->
                             <div onclick="toggleLevel3('tea-l3', this)" class="btn-level3">
                                 <span>Чайная карта</span><span class="arrow">▼</span>
                             </div>
@@ -392,7 +390,6 @@
                                 <div class="menu-item"><span class="item-name">Пуэр Малина-Гранат</span></div>
                             </div>
 
-                            <!-- Лимонады (Мохито перенесен в конец) -->
                             <div onclick="toggleLevel3('lemonade-l3', this)" class="btn-level3">
                                 <span>Лимонад <span class="item-volume">(0,3/1л — 300p/800p)</span></span><span class="arrow">▼</span>
                             </div>
@@ -406,7 +403,6 @@
                                 <div class="menu-item"><span class="item-name">Мохито</span></div>
                             </div>
 
-                            <!-- Кофе & Напитки -->
                             <div onclick="toggleLevel3('coffee-l3', this)" class="btn-level3">
                                 <span>Кофе & Б/А Напитки</span><span class="arrow">▼</span>
                             </div>
@@ -469,36 +465,54 @@
         </div>
     </div>
 
-    <!-- Полностью исправленный точный скрипт высчитывания высоты -->
+    <!-- Новая безупречная анимация аккордеонов -->
     <script>
-        function updateParentHeights(el) {
-            let current = el.parentElement;
-            while (current && !current.classList.contains('container')) {
-                if (current.classList.contains('menu-collapse') || 
-                    current.classList.contains('sub-menu-collapse') || 
-                    current.classList.contains('level3-collapse')) {
-                    if (current.classList.contains('open')) {
-                        current.style.maxHeight = current.scrollHeight + "px";
-                    }
+        function openCollapse(el) {
+            el.classList.add('open');
+            el.style.maxHeight = el.scrollHeight + "px";
+            
+            // После завершения выезда снимаем ограничение, чтобы вложенные списки никогда не резались
+            setTimeout(() => {
+                if (el.classList.contains('open')) {
+                    el.style.maxHeight = 'none';
                 }
-                current = current.parentElement;
-            }
+            }, 360);
+        }
+
+        function closeCollapse(el) {
+            if (!el.classList.contains('open')) return;
+            
+            // Задаем точную текущую высоту перед сворачиванием
+            el.style.maxHeight = el.scrollHeight + "px";
+            el.offsetHeight; // Принудительная перерисовка
+            
+            el.classList.remove('open');
+            el.style.maxHeight = "0px";
+            
+            // Сворачиваем все открытые вложенные списки внутри
+            el.querySelectorAll('.open').forEach(child => {
+                child.classList.remove('open');
+                child.style.maxHeight = "0px";
+            });
         }
 
         function toggleMainMenu(menuId, buttonEl) {
             const menu = document.getElementById(menuId);
             const isOpening = !menu.classList.contains('open');
-            
+
             document.querySelectorAll('.menu-collapse').forEach(el => {
-                el.style.maxHeight = null;
-                el.classList.remove('open');
+                if (el !== menu) closeCollapse(el);
             });
-            document.querySelectorAll('.btn-menu').forEach(el => el.classList.remove('open'));
+            document.querySelectorAll('.btn-menu').forEach(el => {
+                if (el !== buttonEl) el.classList.remove('open');
+            });
 
             if (isOpening) {
-                menu.classList.add('open');
                 buttonEl.classList.add('open');
-                menu.style.maxHeight = menu.scrollHeight + "px";
+                openCollapse(menu);
+            } else {
+                buttonEl.classList.remove('open');
+                closeCollapse(menu);
             }
         }
 
@@ -509,18 +523,18 @@
 
             const parentContainer = subButtonEl.parentElement;
             parentContainer.querySelectorAll(':scope > .sub-menu-collapse').forEach(el => {
-                el.style.maxHeight = null;
-                el.classList.remove('open');
+                if (el !== subMenu) closeCollapse(el);
             });
-            parentContainer.querySelectorAll(':scope > .btn-sub').forEach(el => el.classList.remove('open'));
+            parentContainer.querySelectorAll(':scope > .btn-sub').forEach(el => {
+                if (el !== subButtonEl) el.classList.remove('open');
+            });
 
             if (isOpening) {
-                subMenu.classList.add('open');
                 subButtonEl.classList.add('open');
-                subMenu.style.maxHeight = subMenu.scrollHeight + "px";
-                updateParentHeights(subMenu);
+                openCollapse(subMenu);
             } else {
-                updateParentHeights(subMenu);
+                subButtonEl.classList.remove('open');
+                closeCollapse(subMenu);
             }
         }
 
@@ -531,18 +545,18 @@
 
             const parentContainer = l3ButtonEl.parentElement;
             parentContainer.querySelectorAll(':scope > .level3-collapse').forEach(el => {
-                el.style.maxHeight = null;
-                el.classList.remove('open');
+                if (el !== l3Menu) closeCollapse(el);
             });
-            parentContainer.querySelectorAll(':scope > .btn-level3').forEach(el => el.classList.remove('open'));
+            parentContainer.querySelectorAll(':scope > .btn-level3').forEach(el => {
+                if (el !== l3ButtonEl) el.classList.remove('open');
+            });
 
             if (isOpening) {
-                l3Menu.classList.add('open');
                 l3ButtonEl.classList.add('open');
-                l3Menu.style.maxHeight = l3Menu.scrollHeight + "px";
-                updateParentHeights(l3Menu);
+                openCollapse(l3Menu);
             } else {
-                updateParentHeights(l3Menu);
+                l3ButtonEl.classList.remove('open');
+                closeCollapse(l3Menu);
             }
         }
     </script>
