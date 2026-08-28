@@ -64,7 +64,7 @@
         .btn:active, .btn-sub:active, .btn-level3:active { transform: scale(0.98); }
         .btn-subtitle { font-size: 10px; color: #8e94a0; margin-top: 3px; font-weight: 400; }
 
-        /* Плавные выезжающие контейнеры с динамической высотой */
+        /* Контейнеры анимации */
         .menu-collapse, .sub-menu-collapse, .level3-collapse { width: 100%; max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
         .menu-collapse.open { margin-bottom: 20px; }
         .sub-menu-collapse.open { border-top: 1px dashed rgba(197, 160, 89, 0.15); padding-top: 15px; margin-bottom: 10px; }
@@ -77,7 +77,6 @@
         .category-block:last-child { margin-bottom: 0; }
         .category-title { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #c5a059; margin-bottom: 12px; border-left: 2px solid #c5a059; padding-left: 8px; }
         .sub-category-title { font-size: 11px; font-weight: 600; font-style: italic; color: #8e94a0; margin: 10px 0 6px 5px; text-transform: uppercase; letter-spacing: 0.5px; }
-        
         .sub-category-title.special-brew-title { color: #f3e1b9; border-bottom: 1px solid rgba(197, 160, 89, 0.3); padding-bottom: 3px; font-style: normal; font-weight: 700; margin-top: 10px; margin-bottom: 8px; }
         
         .menu-item { display: flex; justify-content: space-between; align-items: baseline; font-size: 13px; margin-bottom: 6px; padding: 0 5px; }
@@ -152,7 +151,7 @@
             <!-- Кнопка 3: Главное меню заведения -->
             <div onclick="toggleMainMenu('lounge-menu', this)" class="btn btn-standard btn-menu">
                 <span class="btn-title" style="font-weight:600;">Открыть онлайн-меню</span>
-                <span class="btn-subtitle" style="color:rgba(197,160,89,0.7);">Кальяны, закуски и десерты</span>
+                <span class="btn-subtitle" style="color:rgba(197,160,89,0.7);">Сэндвичи, кальяны, закуски и десерты</span>
             </div>
 
             <!-- Выезжающее Меню Заведения -->
@@ -161,7 +160,27 @@
                     <div class="menu-main-title" style="margin-bottom: 15px;">Меню Заведения</div>
 
                     <div class="sub-btn-grid">
-                        <!-- ПОД-КНОПКА 1: КАЛЬЯНЫ -->
+                        <!-- ПОД-КНОПКА 1: КУХНЯ & СЭНДВИЧИ (С ГРАММОВКАМИ) -->
+                        <div onclick="toggleSubMenu('kitchen-sub', this)" class="btn-sub">
+                            <span>Сэндвичи & Кухня</span><span class="arrow">▼</span>
+                        </div>
+                        <div id="kitchen-sub" class="sub-menu-collapse">
+                            <div class="category-block">
+                                <div class="menu-item"><span class="item-name">Клаб-сэндвич Классический <span class="item-volume">(250гр)</span></span><span class="item-dots"></span><span class="item-price">390 ₽</span></div>
+                                <div class="item-desc">Ветчина, сыр чеддер, маринованные огурцы, айсберг, томаты, бургер-соус (возможна замена соуса и огурцов на свежие)</div>
+
+                                <div class="menu-item"><span class="item-name">Клаб-сэндвич с копченой курицей <span class="item-volume">(210гр)</span></span><span class="item-dots"></span><span class="item-price">390 ₽</span></div>
+                                <div class="item-desc">Копченое филе, сыр чеддер, свежий огурец, айсберг, соус цезарь (возможна замена соуса и ингредиентов)</div>
+
+                                <div class="menu-item"><span class="item-name">Фирменный пан-сэндвич <span class="item-volume">(280гр)</span></span><span class="item-dots"></span><span class="item-price">390 ₽</span></div>
+                                <div class="item-desc">Панкейк с луком и петрушкой, картофельный драник, бекон, айсберг, маринованные огурцы, томаты, медово-горчичный соус</div>
+
+                                <div class="menu-item" style="margin-top:10px;"><span class="item-name" style="color:#c5a059; font-weight:600;">Сэндвич-комбо <span class="item-volume">(700гр / 3 шт)</span></span><span class="item-dots"></span><span class="item-price">1100 ₽</span></div>
+                                <div class="item-desc" style="margin-bottom:0; padding-bottom:0;">Все виды сэндвичей: Классический, с копченой курицей и Фирменный пан-сэндвич</div>
+                            </div>
+                        </div>
+
+                        <!-- ПОД-КНОПКА 2: КАЛЬЯНЫ -->
                         <div onclick="toggleSubMenu('hookah-sub', this)" class="btn-sub">
                             <span>Паровые коктейли</span><span class="arrow">▼</span>
                         </div>
@@ -185,7 +204,7 @@
                             </div>
                         </div>
 
-                        <!-- ПОД-КНОПКА 2: ЗАКУСКИ & ФРИТЮР -->
+                        <!-- ПОД-КНОПКА 3: ЗАКУСКИ & ФРИТЮР -->
                         <div onclick="toggleSubMenu('snacks-sub', this)" class="btn-sub">
                             <span>Закуски & Горячий Фритюр</span><span class="arrow">▼</span>
                         </div>
@@ -215,7 +234,7 @@
                             </div>
                         </div>
 
-                        <!-- ПОД-КНОПКА 3: ДЕСЕРТЫ -->
+                        <!-- ПОД-КНОПКА 4: ДЕСЕРТЫ -->
                         <div onclick="toggleSubMenu('desserts-sub', this)" class="btn-sub">
                             <span>Десерты</span><span class="arrow">▼</span>
                         </div>
@@ -357,6 +376,7 @@
                         </div>
                         
                         <div id="bezalco-sub" class="sub-menu-collapse">
+                            <!-- Чайная коллекция -->
                             <div onclick="toggleLevel3('tea-l3', this)" class="btn-level3">
                                 <span>Чайная карта</span><span class="arrow">▼</span>
                             </div>
@@ -390,6 +410,7 @@
                                 <div class="menu-item"><span class="item-name">Пуэр Малина-Гранат</span></div>
                             </div>
 
+                            <!-- Лимонады -->
                             <div onclick="toggleLevel3('lemonade-l3', this)" class="btn-level3">
                                 <span>Лимонад <span class="item-volume">(0,3/1л — 300p/800p)</span></span><span class="arrow">▼</span>
                             </div>
@@ -403,6 +424,7 @@
                                 <div class="menu-item"><span class="item-name">Мохито</span></div>
                             </div>
 
+                            <!-- Кофе & Напитки -->
                             <div onclick="toggleLevel3('coffee-l3', this)" class="btn-level3">
                                 <span>Кофе & Б/А Напитки</span><span class="arrow">▼</span>
                             </div>
@@ -465,13 +487,12 @@
         </div>
     </div>
 
-    <!-- Новая безупречная анимация аккордеонов -->
+    <!-- Безупречная анимация аккордеонов -->
     <script>
         function openCollapse(el) {
             el.classList.add('open');
             el.style.maxHeight = el.scrollHeight + "px";
             
-            // После завершения выезда снимаем ограничение, чтобы вложенные списки никогда не резались
             setTimeout(() => {
                 if (el.classList.contains('open')) {
                     el.style.maxHeight = 'none';
@@ -482,14 +503,12 @@
         function closeCollapse(el) {
             if (!el.classList.contains('open')) return;
             
-            // Задаем точную текущую высоту перед сворачиванием
             el.style.maxHeight = el.scrollHeight + "px";
-            el.offsetHeight; // Принудительная перерисовка
+            el.offsetHeight; 
             
             el.classList.remove('open');
             el.style.maxHeight = "0px";
             
-            // Сворачиваем все открытые вложенные списки внутри
             el.querySelectorAll('.open').forEach(child => {
                 child.classList.remove('open');
                 child.style.maxHeight = "0px";
