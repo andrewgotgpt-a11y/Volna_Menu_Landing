@@ -35,6 +35,23 @@
         .btn-promo .btn-title { color: #c5a059; font-weight: 600; }
         .btn-standard { background: #1c1f26; color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.05); }
         .btn-menu { background: linear-gradient(135deg, #1c1f26 0%, #15181e 100%); border: 1px solid rgba(197, 160, 89, 0.3); }
+
+        /* СТИЛЬ ВЕЧЕРИНОЧНОЙ КНОПКИ (ТОЛЬКО НА СЕГОДНЯ) */
+        .btn-party {
+            background: linear-gradient(135deg, #241326 0%, #181b24 100%);
+            border: 1px solid #ff2a7a;
+            box-shadow: 0 0 18px rgba(255, 42, 122, 0.25);
+            animation: partyPulse 2s infinite alternate ease-in-out;
+        }
+        .btn-party .btn-title { color: #ff3385; font-weight: 700; letter-spacing: 1px; }
+        .btn-party .btn-subtitle { color: #e5b3cb; font-size: 10px; margin-top: 3px; }
+        @keyframes partyPulse {
+            0% { box-shadow: 0 0 10px rgba(255, 42, 122, 0.2); border-color: #ff2a7a; }
+            100% { box-shadow: 0 0 22px rgba(255, 42, 122, 0.55); border-color: #ff75ab; }
+        }
+
+        /* Постер в вечериночном блоке */
+        .party-poster-img { width: 100%; border-radius: 12px; margin-bottom: 16px; border: 1px solid rgba(255, 42, 122, 0.3); box-shadow: 0 6px 20px rgba(0,0,0,0.5); display: block; }
         
         /* Кнопка чаевых CloudTips */
         .btn-tips { background: linear-gradient(135deg, #9a7432 0%, #c5a059 100%); color: #111317; font-weight: 700; border: none; box-shadow: 0 6px 20px rgba(197, 160, 89, 0.25); animation: pulseGlow 2.5s infinite ease-in-out; }
@@ -47,8 +64,10 @@
             100% { box-shadow: 0 4px 15px rgba(197, 160, 89, 0.2); }
         }
 
-        .btn-menu::before { content: "▼"; position: absolute; right: 20px; color: rgba(197, 160, 89, 0.5); font-size: 10px; transition: transform 0.3s ease; }
-        .btn-menu.open::before { transform: rotate(180deg); color: #c5a059; }
+        .btn-menu::before, .btn-party::before { content: "▼"; position: absolute; right: 20px; color: rgba(197, 160, 89, 0.5); font-size: 10px; transition: transform 0.3s ease; }
+        .btn-party::before { color: #ff2a7a; }
+        .btn-menu.open::before, .btn-party.open::before { transform: rotate(180deg); color: #c5a059; }
+        .btn-party.open::before { color: #ff75ab; }
         
         .sub-btn-grid { display: flex; flex-direction: column; gap: 10px; padding: 5px 0 10px 0; }
         .btn-sub { background: #1c1f26; border: 1px solid rgba(255, 255, 255, 0.08); padding: 12px 15px; border-radius: 8px; font-size: 13px; font-weight: 600; color: #ffffff; letter-spacing: 0.5px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: all 0.2s ease; }
@@ -148,6 +167,43 @@
                 <span class="btn-subtitle">Гостевая сеть: Wave</span>
             </a>
 
+            <!-- ============================================== -->
+            <!-- НАЧАЛО БЛОКА ВЕЧЕРИНКИ (УДАЛИТЬ ПОСЛЕ ПАТИ) -->
+            <!-- ============================================== -->
+            <div onclick="toggleMainMenu('party-menu', this)" class="btn btn-party">
+                <span class="btn-title">Лимитированные Шоты — 100 ₽</span>
+                <span class="btn-subtitle">Эксклюзив вечеринки • Только этой ночью</span>
+            </div>
+
+            <div id="party-menu" class="menu-collapse">
+                <div class="menu-section" style="border-color: rgba(255, 42, 122, 0.4); background: #171620;">
+                    <div class="menu-main-title" style="color: #ff3385; border-color: rgba(255, 42, 122, 0.3);">Vape Shots • 100 ₽</div>
+                    
+                    <!-- Афиша вечеринки (если загрузишь party.jpg в корень) -->
+                    <img src="party.jpg" alt="Шоты 100р" class="party-poster-img" onerror="this.style.display='none'">
+
+                    <div class="category-block" style="margin-bottom: 0;">
+                        <div class="menu-item"><span class="item-name" style="color:#ffffff; font-weight:600;">Elf Bar — Cherry Amaretto</span><span class="item-dots"></span><span class="item-price" style="color:#ff3385;">100 ₽</span></div>
+                        <div class="item-desc">Водка, вишня-шисо, миндаль</div>
+
+                        <div class="menu-item"><span class="item-name" style="color:#ffffff; font-weight:600;">Lost Mary — Strawberry Coconut</span><span class="item-dots"></span><span class="item-price" style="color:#ff3385;">100 ₽</span></div>
+                        <div class="item-desc">Водка, клубника-ревень, кокос</div>
+
+                        <div class="menu-item"><span class="item-name" style="color:#ffffff; font-weight:600;">HQD — Grape Lychee</span><span class="item-dots"></span><span class="item-price" style="color:#ff3385;">100 ₽</span></div>
+                        <div class="item-desc">Водка, мате-виноград, личи-лотос</div>
+
+                        <div class="menu-item"><span class="item-name" style="color:#ffffff; font-weight:600;">Puff — Melon Ice</span><span class="item-dots"></span><span class="item-price" style="color:#ff3385;">100 ₽</span></div>
+                        <div class="item-desc">Водка, дыня, алоэ-полынь</div>
+
+                        <div class="menu-item"><span class="item-name" style="color:#ffffff; font-weight:600;">Waka — Sweet Fig</span><span class="item-dots"></span><span class="item-price" style="color:#ff3385;">100 ₽</span></div>
+                        <div class="item-desc" style="margin-bottom:0; padding-bottom:0;">Водка, табак-инжир, миндаль</div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================== -->
+            <!-- КОНЕЦ БЛОКА ВЕЧЕРИНКИ -->
+            <!-- ============================================== -->
+
             <!-- Кнопка 3: Главное меню заведения -->
             <div onclick="toggleMainMenu('lounge-menu', this)" class="btn btn-standard btn-menu">
                 <span class="btn-title" style="font-weight:600;">Открыть онлайн-меню</span>
@@ -160,7 +216,7 @@
                     <div class="menu-main-title" style="margin-bottom: 15px;">Меню Заведения</div>
 
                     <div class="sub-btn-grid">
-                        <!-- ПОД-КНОПКА 1: КУХНЯ & СЭНДВИЧИ (С ГРАММОВКАМИ) -->
+                        <!-- ПОД-КНОПКА 1: КУХНЯ & СЭНДВИЧИ -->
                         <div onclick="toggleSubMenu('kitchen-sub', this)" class="btn-sub">
                             <span>Сэндвичи & Кухня</span><span class="arrow">▼</span>
                         </div>
@@ -522,7 +578,7 @@
             document.querySelectorAll('.menu-collapse').forEach(el => {
                 if (el !== menu) closeCollapse(el);
             });
-            document.querySelectorAll('.btn-menu').forEach(el => {
+            document.querySelectorAll('.btn-menu, .btn-party').forEach(el => {
                 if (el !== buttonEl) el.classList.remove('open');
             });
 
