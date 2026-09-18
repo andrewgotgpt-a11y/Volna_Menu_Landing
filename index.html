@@ -36,7 +36,7 @@
         .btn-standard { background: #1c1f26; color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.05); }
         .btn-menu { background: linear-gradient(135deg, #1c1f26 0%, #15181e 100%); border: 1px solid rgba(197, 160, 89, 0.3); }
 
-        /* СТИЛЬ ВЕЧЕРИНОЧНОЙ КНОПКИ (ТОЛЬКО НА СЕГОДНЯ) */
+        /* СТИЛЬ ВЕЧЕРИНОЧНОЙ КНОПКИ */
         .btn-party {
             background: linear-gradient(135deg, #241326 0%, #181b24 100%);
             border: 1px solid #ff2a7a;
@@ -50,7 +50,6 @@
             100% { box-shadow: 0 0 22px rgba(255, 42, 122, 0.55); border-color: #ff75ab; }
         }
 
-        /* Постер в вечериночном блоке */
         .party-poster-img { width: 100%; border-radius: 12px; margin-bottom: 16px; border: 1px solid rgba(255, 42, 122, 0.3); box-shadow: 0 6px 20px rgba(0,0,0,0.5); display: block; }
         
         /* Кнопка чаевых CloudTips */
@@ -167,7 +166,42 @@
                 <span class="btn-subtitle">Гостевая сеть: Wave</span>
             </a>
 
-        
+            <!-- ============================================== -->
+            <!-- НАЧАЛО БЛОКА ВЕЧЕРИНКИ (ТОЛЬКО НА ЭТУ НОЧЬ) -->
+            <!-- ============================================== -->
+            <div onclick="toggleMainMenu('party-menu', this)" class="btn btn-party">
+                <span class="btn-title">Лимитированные Шоты — 100 ₽</span>
+                <span class="btn-subtitle">Эксклюзив вечеринки • Только этой ночью</span>
+            </div>
+
+            <div id="party-menu" class="menu-collapse">
+                <div class="menu-section" style="border-color: rgba(255, 42, 122, 0.4); background: #171620;">
+                    <div class="menu-main-title" style="color: #ff3385; border-color: rgba(255, 42, 122, 0.3);">Vape Shots • 100 ₽</div>
+                    
+                    <img src="party.jpg" alt="Шоты 100р" class="party-poster-img" onerror="this.style.display='none'">
+
+                    <div class="category-block" style="margin-bottom: 0;">
+                        <div class="menu-item"><span class="item-name" style="color:#ffffff; font-weight:600;">Elf Bar — Cherry Amaretto</span><span class="item-dots"></span><span class="item-price" style="color:#ff3385;">100 ₽</span></div>
+                        <div class="item-desc">Водка, вишня-шисо, миндаль</div>
+
+                        <div class="menu-item"><span class="item-name" style="color:#ffffff; font-weight:600;">Lost Mary — Strawberry Coconut</span><span class="item-dots"></span><span class="item-price" style="color:#ff3385;">100 ₽</span></div>
+                        <div class="item-desc">Водка, клубника-ревень, кокос</div>
+
+                        <div class="menu-item"><span class="item-name" style="color:#ffffff; font-weight:600;">HQD — Grape Lychee</span><span class="item-dots"></span><span class="item-price" style="color:#ff3385;">100 ₽</span></div>
+                        <div class="item-desc">Водка, мате-виноград, личи-лотос</div>
+
+                        <div class="menu-item"><span class="item-name" style="color:#ffffff; font-weight:600;">Puff — Melon Ice</span><span class="item-dots"></span><span class="item-price" style="color:#ff3385;">100 ₽</span></div>
+                        <div class="item-desc">Водка, дыня, алоэ-полынь</div>
+
+                        <div class="menu-item"><span class="item-name" style="color:#ffffff; font-weight:600;">Waka — Sweet Fig</span><span class="item-dots"></span><span class="item-price" style="color:#ff3385;">100 ₽</span></div>
+                        <div class="item-desc" style="margin-bottom:0; padding-bottom:0;">Водка, табак-инжир, миндаль</div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================== -->
+            <!-- КОНЕЦ БЛОКА ВЕЧЕРИНКИ -->
+            <!-- ============================================== -->
+
             <!-- Кнопка 3: Главное меню заведения -->
             <div onclick="toggleMainMenu('lounge-menu', this)" class="btn btn-standard btn-menu">
                 <span class="btn-title" style="font-weight:600;">Открыть онлайн-меню</span>
@@ -351,7 +385,7 @@
                                 <div class="item-desc" style="margin-bottom:0; padding-bottom:0;">Б-53: крепость и богатый аромат (подача на баре)</div>
                             </div>
 
-                            <!-- Пиво -->
+                            <!-- Пиво (Обновленная редакция) -->
                             <div onclick="toggleLevel3('beer-l3', this)" class="btn-level3">
                                 <span>Пивная карта</span><span class="arrow">▼</span>
                             </div>
@@ -372,18 +406,22 @@
                                 <div class="menu-item"><span class="item-name">Бланш <span class="item-volume">(Нефильтр.)</span></span><span class="item-dots"></span><span class="item-price">300p</span></div>
                                 
                                 <div class="sub-category-title">Темное</div>
-                                <div class="menu-item"><span class="item-name">Ловенбрау</span><span class="item-dots"></span><span class="item-price">300p</span></div>
-                                <div class="menu-item"><span class="item-name">Реворт Balkan Pearl <span class="item-volume">(Шоколадный стаут)</span></span><span class="item-dots"></span><span class="item-price">400p</span></div>
+                                <div class="menu-item"><span class="item-name">Ловенбрау</span><span class="item-dots"></span><span class="item-price"><s style="color:#8e94a0; font-weight:normal; margin-right:4px; font-size:11px;">300p</s><span style="color:#c5a059;">200p</span></span></div>
 
                                 <div class="sub-category-title">Вкусовое</div>
-                                <div class="menu-item"><span class="item-name">Хугарден</span><span class="item-dots"></span><span class="item-price">300p</span></div>
+                                <div class="menu-item"><span class="item-name">Хугарден Грейпфрут</span><span class="item-dots"></span><span class="item-price">300p</span></div>
                                 <div class="menu-item"><span class="item-name">Честер</span><span class="item-dots"></span><span class="item-price">300p</span></div>
 
                                 <div class="sub-category-title">Крафтовое</div>
-                                <div class="menu-item"><span class="item-name">Beer Bar IPA</span><span class="item-dots"></span><span class="item-price">300p</span></div>
                                 <div class="menu-item"><span class="item-name">Konix OVERFALL IPA</span><span class="item-dots"></span><span class="item-price">350p</span></div>
+                                
+                                <div class="menu-item"><span class="item-name">Jaws Nitro Stout</span><span class="item-dots"></span><span class="item-price">450p</span></div>
+                                <div class="item-desc">Ирландский сухой стаут на азоте с нежнейшей лавинной кремовой пеной, нотами кофе и жженого солода</div>
 
-                                <div class="sub-category-title">Б/А пиво</div>
+                                <div class="menu-item"><span class="item-name">Jaws Овсяный стаут</span><span class="item-dots"></span><span class="item-price">450p</span></div>
+                                <div class="item-desc" style="margin-bottom:0; padding-bottom:0;">Шелковистый плотный стаут с мягким сливочным телом, нотами шоколада и кофе</div>
+
+                                <div class="sub-category-title" style="margin-top:10px;">Б/А пиво</div>
                                 <div class="menu-item"><span class="item-name">Хугарден 0.0</span><span class="item-dots"></span><span class="item-price">300p</span></div>
                                 <div class="menu-item"><span class="item-name">Стела Артуа 0.0</span><span class="item-dots"></span><span class="item-price">300p</span></div>
                                 <div class="menu-item"><span class="item-name">Бад 0.0</span><span class="item-dots"></span><span class="item-price">300p</span></div>
