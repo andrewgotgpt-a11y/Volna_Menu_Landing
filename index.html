@@ -36,22 +36,6 @@
         .btn-standard { background: #1c1f26; color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.05); }
         .btn-menu { background: linear-gradient(135deg, #1c1f26 0%, #15181e 100%); border: 1px solid rgba(197, 160, 89, 0.3); }
 
-        /* СТИЛЬ ВЕЧЕРИНОЧНОЙ КНОПКИ */
-        .btn-party {
-            background: linear-gradient(135deg, #241326 0%, #181b24 100%);
-            border: 1px solid #ff2a7a;
-            box-shadow: 0 0 18px rgba(255, 42, 122, 0.25);
-            animation: partyPulse 2s infinite alternate ease-in-out;
-        }
-        .btn-party .btn-title { color: #ff3385; font-weight: 700; letter-spacing: 1px; }
-        .btn-party .btn-subtitle { color: #e5b3cb; font-size: 10px; margin-top: 3px; }
-        @keyframes partyPulse {
-            0% { box-shadow: 0 0 10px rgba(255, 42, 122, 0.2); border-color: #ff2a7a; }
-            100% { box-shadow: 0 0 22px rgba(255, 42, 122, 0.55); border-color: #ff75ab; }
-        }
-
-        .party-poster-img { width: 100%; border-radius: 12px; margin-bottom: 16px; border: 1px solid rgba(255, 42, 122, 0.3); box-shadow: 0 6px 20px rgba(0,0,0,0.5); display: block; }
-        
         /* Кнопка чаевых CloudTips */
         .btn-tips { background: linear-gradient(135deg, #9a7432 0%, #c5a059 100%); color: #111317; font-weight: 700; border: none; box-shadow: 0 6px 20px rgba(197, 160, 89, 0.25); animation: pulseGlow 2.5s infinite ease-in-out; }
         .btn-tips .btn-title { color: #111317; font-weight: 700; }
@@ -63,10 +47,8 @@
             100% { box-shadow: 0 4px 15px rgba(197, 160, 89, 0.2); }
         }
 
-        .btn-menu::before, .btn-party::before { content: "▼"; position: absolute; right: 20px; color: rgba(197, 160, 89, 0.5); font-size: 10px; transition: transform 0.3s ease; }
-        .btn-party::before { color: #ff2a7a; }
-        .btn-menu.open::before, .btn-party.open::before { transform: rotate(180deg); color: #c5a059; }
-        .btn-party.open::before { color: #ff75ab; }
+        .btn-menu::before { content: "▼"; position: absolute; right: 20px; color: rgba(197, 160, 89, 0.5); font-size: 10px; transition: transform 0.3s ease; }
+        .btn-menu.open::before { transform: rotate(180deg); color: #c5a059; }
         
         .sub-btn-grid { display: flex; flex-direction: column; gap: 10px; padding: 5px 0 10px 0; }
         .btn-sub { background: #1c1f26; border: 1px solid rgba(255, 255, 255, 0.08); padding: 12px 15px; border-radius: 8px; font-size: 13px; font-weight: 600; color: #ffffff; letter-spacing: 0.5px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: all 0.2s ease; }
@@ -94,10 +76,10 @@
         .category-block { margin-bottom: 20px; }
         .category-block:last-child { margin-bottom: 0; }
         .category-title { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #c5a059; margin-bottom: 12px; border-left: 2px solid #c5a059; padding-left: 8px; }
-        .sub-category-title { font-size: 11px; font-weight: 600; font-style: italic; color: #8e94a0; margin: 10px 0 6px 5px; text-transform: uppercase; letter-spacing: 0.5px; }
-        .sub-category-title.special-brew-title { color: #f3e1b9; border-bottom: 1px solid rgba(197, 160, 89, 0.3); padding-bottom: 3px; font-style: normal; font-weight: 700; margin-top: 10px; margin-bottom: 8px; }
+        .sub-category-title { font-size: 11px; font-weight: 600; font-style: italic; color: #8e94a0; margin: 12px 0 6px 5px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .sub-category-title.special-brew-title { color: #f3e1b9; border-bottom: 1px solid rgba(197, 160, 89, 0.3); padding-bottom: 3px; font-style: normal; font-weight: 700; margin-top: 5px; margin-bottom: 8px; }
         
-        .menu-item { display: flex; justify-content: space-between; align-items: baseline; font-size: 13px; margin-bottom: 6px; padding: 0 5px; }
+        .menu-item { display: flex; justify-content: space-between; align-items: baseline; font-size: 13px; margin-bottom: 4px; padding: 0 5px; }
         .item-name { color: #e0e0e0; font-weight: 500; padding-right: 5px; }
         
         .taste-tag { font-size: 10px; color: #c5a059; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; background: rgba(197, 160, 89, 0.08); padding: 2px 6px; border-radius: 4px; display: inline-block; margin: 2px 0 6px 5px; }
@@ -165,42 +147,6 @@
                 <span class="btn-title">Подключиться к Wi-Fi</span>
                 <span class="btn-subtitle">Гостевая сеть: Wave</span>
             </a>
-
-            <!-- ============================================== -->
-            <!-- НАЧАЛО БЛОКА ВЕЧЕРИНКИ (ТОЛЬКО НА ЭТУ НОЧЬ) -->
-            <!-- ============================================== -->
-            <div onclick="toggleMainMenu('party-menu', this)" class="btn btn-party">
-                <span class="btn-title">Лимитированные Шоты — 100 ₽</span>
-                <span class="btn-subtitle">Эксклюзив вечеринки • Только этой ночью</span>
-            </div>
-
-            <div id="party-menu" class="menu-collapse">
-                <div class="menu-section" style="border-color: rgba(255, 42, 122, 0.4); background: #171620;">
-                    <div class="menu-main-title" style="color: #ff3385; border-color: rgba(255, 42, 122, 0.3);">Vape Shots • 100 ₽</div>
-                    
-                    <img src="party.jpg" alt="Шоты 100р" class="party-poster-img" onerror="this.style.display='none'">
-
-                    <div class="category-block" style="margin-bottom: 0;">
-                        <div class="menu-item"><span class="item-name" style="color:#ffffff; font-weight:600;">Elf Bar — Cherry Amaretto</span><span class="item-dots"></span><span class="item-price" style="color:#ff3385;">100 ₽</span></div>
-                        <div class="item-desc">Водка, вишня-шисо, миндаль</div>
-
-                        <div class="menu-item"><span class="item-name" style="color:#ffffff; font-weight:600;">Lost Mary — Strawberry Coconut</span><span class="item-dots"></span><span class="item-price" style="color:#ff3385;">100 ₽</span></div>
-                        <div class="item-desc">Водка, клубника-ревень, кокос</div>
-
-                        <div class="menu-item"><span class="item-name" style="color:#ffffff; font-weight:600;">HQD — Grape Lychee</span><span class="item-dots"></span><span class="item-price" style="color:#ff3385;">100 ₽</span></div>
-                        <div class="item-desc">Водка, мате-виноград, личи-лотос</div>
-
-                        <div class="menu-item"><span class="item-name" style="color:#ffffff; font-weight:600;">Puff — Melon Ice</span><span class="item-dots"></span><span class="item-price" style="color:#ff3385;">100 ₽</span></div>
-                        <div class="item-desc">Водка, дыня, алоэ-полынь</div>
-
-                        <div class="menu-item"><span class="item-name" style="color:#ffffff; font-weight:600;">Waka — Sweet Fig</span><span class="item-dots"></span><span class="item-price" style="color:#ff3385;">100 ₽</span></div>
-                        <div class="item-desc" style="margin-bottom:0; padding-bottom:0;">Водка, табак-инжир, миндаль</div>
-                    </div>
-                </div>
-            </div>
-            <!-- ============================================== -->
-            <!-- КОНЕЦ БЛОКА ВЕЧЕРИНКИ -->
-            <!-- ============================================== -->
 
             <!-- Кнопка 3: Главное меню заведения -->
             <div onclick="toggleMainMenu('lounge-menu', this)" class="btn btn-standard btn-menu">
@@ -385,46 +331,82 @@
                                 <div class="item-desc" style="margin-bottom:0; padding-bottom:0;">Б-53: крепость и богатый аромат (подача на баре)</div>
                             </div>
 
-                            <!-- Пиво (Обновленная редакция) -->
+                            <!-- Пиво с подробными описаниями -->
                             <div onclick="toggleLevel3('beer-l3', this)" class="btn-level3">
                                 <span>Пивная карта</span><span class="arrow">▼</span>
                             </div>
                             <div id="beer-l3" class="level3-collapse">
                                 <div class="sub-category-title special-brew-title">Устюженская Пивоварня</div>
+                                
                                 <div class="menu-item"><span class="item-name">Устюжна <span class="item-volume">(Нефильтр.)</span></span><span class="item-dots"></span><span class="item-price">300p</span></div>
+                                <div class="item-desc">Свежий местный нефильтрованный лагер с мягким солодовым вкусом и легкой хмелевой горчинкой</div>
+
                                 <div class="menu-item"><span class="item-name">Русское <span class="item-volume">(Нефильтр.)</span></span><span class="item-dots"></span><span class="item-price">300p</span></div>
+                                <div class="item-desc">Традиционный нефильтрованный светлый эль с чистым хлебным ароматом и мягким телом</div>
+
                                 <div class="menu-item"><span class="item-name">Роттенбир <span class="item-volume">(Нефильтр.)</span></span><span class="item-dots"></span><span class="item-price">300p</span></div>
+                                <div class="item-desc">Авторский сорт с выразительным зерновым профилем и насыщенным послевкусием</div>
 
                                 <div class="sub-category-title">Светлое</div>
+                                
                                 <div class="menu-item"><span class="item-name">Бад <span class="item-volume">(Фильтр.)</span></span><span class="item-dots"></span><span class="item-price">300p</span></div>
+                                <div class="item-desc">Американский классический лагер, кристально чистый и легко пьющийся</div>
+
                                 <div class="menu-item"><span class="item-name">Шпатен <span class="item-volume">(Фильтр.)</span></span><span class="item-dots"></span><span class="item-price">300p</span></div>
+                                <div class="item-desc">Мюнхенский хель с благородным балансом светлого солода и мягкого хмеля</div>
+
                                 <div class="menu-item"><span class="item-name">Стела Артуа <span class="item-volume">(Фильтр.)</span></span><span class="item-dots"></span><span class="item-price">300p</span></div>
+                                <div class="item-desc">Бельгийский премиальный пилснер с тонким цветочным ароматом и пикантной горчинкой</div>
+
                                 <div class="menu-item"><span class="item-name">Эль Капулько <span class="item-volume">(Фильтр.)</span></span><span class="item-dots"></span><span class="item-price">300p</span></div>
+                                <div class="item-desc">Освежающий мексиканский лагер в солнечном стиле, идеален ледяным</div>
+
                                 <div class="menu-item"><span class="item-name">Ловенбрау <span class="item-volume">(Фильтр.)</span></span><span class="item-dots"></span><span class="item-price">300p</span></div>
+                                <div class="item-desc">Баварская классика с мягкой хмелевой горчинкой и золотистым цветом</div>
+
                                 <div class="menu-item"><span class="item-name">Оттингер <span class="item-volume">(Фильтр.)</span></span><span class="item-dots"></span><span class="item-price">350p</span></div>
+                                <div class="item-desc">Немецкий экспортный лагер с плотным телом и выразительной солодовой базой</div>
+
                                 <div class="menu-item"><span class="item-name">Хугарден <span class="item-volume">(Нефильтр.)</span></span><span class="item-dots"></span><span class="item-price">300p</span></div>
+                                <div class="item-desc">Бельгийское пшеничное пиво (бланш) с нотами цедры кюрасао и кориандра</div>
+
                                 <div class="menu-item"><span class="item-name">Бланш <span class="item-volume">(Нефильтр.)</span></span><span class="item-dots"></span><span class="item-price">300p</span></div>
+                                <div class="item-desc">Освежающее пшеничное с мягкой кислинкой и фруктово-пряным ароматом</div>
                                 
                                 <div class="sub-category-title">Темное</div>
+                                
                                 <div class="menu-item"><span class="item-name">Ловенбрау</span><span class="item-dots"></span><span class="item-price"><s style="color:#8e94a0; font-weight:normal; margin-right:4px; font-size:11px;">300p</s><span style="color:#c5a059;">200p</span></span></div>
+                                <div class="item-desc">Бархатистый баварский дункель с нотами карамели и темных обжаренных солодов</div>
 
                                 <div class="sub-category-title">Вкусовое</div>
+                                
                                 <div class="menu-item"><span class="item-name">Хугарден Грейпфрут</span><span class="item-dots"></span><span class="item-price">300p</span></div>
+                                <div class="item-desc">Пшеничная база с добавлением натурального грейпфрутового сока и приятной цитрусовой горчинкой</div>
+
                                 <div class="menu-item"><span class="item-name">Честер</span><span class="item-dots"></span><span class="item-price">300p</span></div>
+                                <div class="item-desc">Освежающий натуральный сидр с ярким фруктовым ароматом и деликатной сладостью</div>
 
                                 <div class="sub-category-title">Крафтовое</div>
+                                
                                 <div class="menu-item"><span class="item-name">Konix OVERFALL IPA</span><span class="item-dots"></span><span class="item-price">350p</span></div>
+                                <div class="item-desc">Американский IPA с мощным хмелевым ароматом хвои, тропиков и уверенной горечью</div>
                                 
                                 <div class="menu-item"><span class="item-name">Jaws Nitro Stout</span><span class="item-dots"></span><span class="item-price">450p</span></div>
                                 <div class="item-desc">Ирландский сухой стаут на азоте с нежнейшей лавинной кремовой пеной, нотами кофе и жженого солода</div>
 
                                 <div class="menu-item"><span class="item-name">Jaws Овсяный стаут</span><span class="item-dots"></span><span class="item-price">450p</span></div>
-                                <div class="item-desc" style="margin-bottom:0; padding-bottom:0;">Шелковистый плотный стаут с мягким сливочным телом, нотами шоколада и кофе</div>
+                                <div class="item-desc">Шелковистый плотный стаут с мягким сливочным телом, нотами темного шоколада и кофе со сливками</div>
 
                                 <div class="sub-category-title" style="margin-top:10px;">Б/А пиво</div>
+                                
                                 <div class="menu-item"><span class="item-name">Хугарден 0.0</span><span class="item-dots"></span><span class="item-price">300p</span></div>
+                                <div class="item-desc">Оригинальный вкус пшеничного бланша с нотами кориандра и цедры без алкоголя</div>
+
                                 <div class="menu-item"><span class="item-name">Стела Артуа 0.0</span><span class="item-dots"></span><span class="item-price">300p</span></div>
+                                <div class="item-desc">Премиальный бельгийский светлый лагер с чистой горчинкой в безалкогольном формате</div>
+
                                 <div class="menu-item"><span class="item-name">Бад 0.0</span><span class="item-dots"></span><span class="item-price">300p</span></div>
+                                <div class="item-desc" style="margin-bottom:0; padding-bottom:0;">Лёгкий освежающий безалкогольный лагер с нейтральным солодовым телом</div>
                             </div>
                         </div>
 
@@ -580,7 +562,7 @@
             document.querySelectorAll('.menu-collapse').forEach(el => {
                 if (el !== menu) closeCollapse(el);
             });
-            document.querySelectorAll('.btn-menu, .btn-party').forEach(el => {
+            document.querySelectorAll('.btn-menu').forEach(el => {
                 if (el !== buttonEl) el.classList.remove('open');
             });
 
