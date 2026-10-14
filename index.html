@@ -15,6 +15,29 @@
     <meta name="theme-color" content="#111317">
 
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Библиотека VK Bridge для VK Mini Apps -->
+    <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
+    <script>
+        if (typeof vkBridge !== 'undefined') {
+            vkBridge.send('VKWebAppInit');
+        }
+    </script>
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113172700', 'ym');
+
+        ym(113172700, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/113172700" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
         html { scroll-behavior: smooth; }
@@ -109,27 +132,6 @@
         .social-link svg { width: 24px; height: 24px; fill: currentColor; display: block; }
         .copyright { font-size: 9px; color: #4a4f5a; letter-spacing: 1px; text-transform: uppercase; margin-top: 5px; }
     </style>
-    <!-- Библиотека VK Bridge для VK Mini Apps -->
-<script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
-<script>
-    // Сообщаем ВКонтакте, что сайт готов, и отключаем прелоадер
-    if (typeof vkBridge !== 'undefined') {
-        vkBridge.send('VKWebAppInit');
-    }
-</script>
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-    (function(m,e,t,r,i,k,a){
-        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113172700', 'ym');
-
-    ym(113172700, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/113172700" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
 </head>
 <body>
 
@@ -154,7 +156,7 @@
                     <path d="M28 132 C 55 145, 80 118, 125 137 C 150 148, 160 134, 172 132" stroke-opacity="0.5"/>
                 </g>
             </svg>
-            <div class="welcome-text">Волна Лаундж</div>
+            <div class="welcome-text">Приветствуем в Волна Лаундж!</div>
         </div>
 
         <!-- Кнопки главного интерфейса -->
@@ -172,7 +174,7 @@
             <!-- Кнопка 3: Главное меню заведения -->
             <div onclick="toggleMainMenu('lounge-menu', this)" class="btn btn-standard btn-menu">
                 <span class="btn-title" style="font-weight:600;">Открыть онлайн-меню</span>
-                <span class="btn-subtitle" style="color:rgba(197,160,89,0.7);">Сэндвичи, кальяны, закуски и десерты</span>
+                <span class="btn-subtitle" style="color:rgba(197,160,89,0.7);">Кухня, горячий фритюр, кальяны и десерты</span>
             </div>
 
             <!-- Выезжающее Меню Заведения -->
@@ -181,23 +183,69 @@
                     <div class="menu-main-title" style="margin-bottom: 15px;">Меню Заведения</div>
 
                     <div class="sub-btn-grid">
-                        <!-- ПОД-КНОПКА 1: КУХНЯ & СЭНДВИЧИ -->
+                        <!-- ПОД-КНОПКА 1: КУХНЯ & ОСНОВНЫЕ БЛЮДА -->
                         <div onclick="toggleSubMenu('kitchen-sub', this)" class="btn-sub">
-                            <span>Сэндвичи & Кухня</span><span class="arrow">▼</span>
+                            <span>Кухня & Основные блюда</span><span class="arrow">▼</span>
                         </div>
                         <div id="kitchen-sub" class="sub-menu-collapse">
                             <div class="category-block">
-                            
-                                <div class="menu-item"><span class="item-name">Клаб-сэндвич с цыплёнком су-вид <span class="item-volume">(210гр)</span></span><span class="item-dots"></span><span class="item-price">390 ₽</span></div>
-                                <div class="item-desc">Куриное филе, сыр чеддер, свежий огурец, айсберг, соус цезарь (возможна замена соуса и ингредиентов)</div>
+                                <div class="sub-category-title special-brew-title">Горячие Супы</div>
+                                
+                                <div class="menu-item"><span class="item-name">Суп Фо-га</span><span class="item-dots"></span><span class="item-price">420 ₽</span></div>
+                                <div class="item-desc">Насыщенный пряный говяжий бульон фо с нежным куриным филе су-вид, рисовой лапшой, кинзой и зеленым луком</div>
 
+                                <div class="menu-item"><span class="item-name">Куриный суп с лапшой</span><span class="item-dots"></span><span class="item-price">320 ₽</span></div>
+                                <div class="item-desc">Домашний куриный бульон с яичной лапшой, сочным куриным филе, яйцом и свежей зеленью</div>
+
+                                <div class="sub-category-title" style="margin-top:14px;">Сэндвичи & Бургеры</div>
+                                
                                 <div class="menu-item"><span class="item-name">Фирменный пан-сэндвич <span class="item-volume">(280гр)</span></span><span class="item-dots"></span><span class="item-price">390 ₽</span></div>
-                                <div class="item-desc">Панкейк с луком и петрушкой, картофельный драник, бекон, айсберг, маринованные огурцы, томаты, медово-горчичный соус</div>
+                                <div class="item-desc">Панкейк с луком и зеленью, хрустящий картофельный драник, бекон, айсберг, маринованные огурцы, томаты, медово-горчичный соус</div>
 
+                                <div class="menu-item"><span class="item-name">Фирменный бургер по-белорусски</span><span class="item-dots"></span><span class="item-price">450 ₽</span></div>
+                                <div class="item-desc">Сочная котлета из отборной говядины, нежный картофельный драник вместо булочки, сыр чеддер, маринованный огурец и фирменный соус</div>
+
+                                <div class="menu-item"><span class="item-name">Сэндвич с цыплёнком су-вид <span class="item-volume">(210гр)</span></span><span class="item-dots"></span><span class="item-price">390 ₽</span></div>
+                                <div class="item-desc">Филе цыпленка су-вид, сыр чеддер, свежий огурец, салат айсберг, нежный соус на поджаренном тосте</div>
+
+                                <div class="sub-category-title" style="margin-top:14px;">Кесадильи & Горячие Закуски</div>
+
+                                <div class="menu-item"><span class="item-name">Кесадилья с цыплёнком су-вид</span><span class="item-dots"></span><span class="item-price">420 ₽</span></div>
+                                <div class="item-desc">Пшеничная тортилья, филе цыпленка су-вид, сладкая кукуруза, тягучая моцарелла и пикантный соус чипотле</div>
+
+                                <div class="menu-item"><span class="item-name">Кесадилья с говядиной и грибами</span><span class="item-dots"></span><span class="item-price">450 ₽</span></div>
+                                <div class="item-desc">Пшеничная тортилья, сочный говяжий фарш, обжаренные шампиньоны, сыр моцарелла и фирменный соус</div>
+
+                                <div class="menu-item"><span class="item-name">Печёные хашбрауны с курицей и беконом</span><span class="item-dots"></span><span class="item-price">390 ₽</span></div>
+                                <div class="item-desc">Картофельные хашбрауны, запечённые под сыром моцарелла с кусочками куриного филе, хрустящим беконом и грибами</div>
+
+                                <div class="menu-item"><span class="item-name">Сельдь с хашбрауном</span><span class="item-dots"></span><span class="item-price">360 ₽</span></div>
+                                <div class="item-desc" style="margin-bottom:0; padding-bottom:0;">Пряное филе сельди на горячем картофельном хашбрауне с нежным белым соусом, пикантными корнишонами и маринованным красным луком</div>
                             </div>
                         </div>
 
-                        <!-- ПОД-КНОПКА 2: КАЛЬЯНЫ -->
+                        <!-- ПОД-КНОПКА 2: ГОРЯЧИЙ ФРИТЮР -->
+                        <div onclick="toggleSubMenu('fry-sub', this)" class="btn-sub">
+                            <span>Горячий фритюр</span><span class="arrow">▼</span>
+                        </div>
+                        <div id="fry-sub" class="sub-menu-collapse">
+                            <div class="category-block">
+                                <div class="menu-item"><span class="item-name">Картофель фри <span class="item-volume">(200гр)</span></span><span class="item-dots"></span><span class="item-price">280р</span></div>
+                                <div class="menu-item"><span class="item-name">Картофель Айдахо <span class="item-volume">(200гр)</span></span><span class="item-dots"></span><span class="item-price">280р</span></div>
+                                <div class="menu-item"><span class="item-name">Чесночные гренки <span class="item-volume">(200гр)</span></span><span class="item-dots"></span><span class="item-price">280р</span></div>
+                                <div class="menu-item"><span class="item-name">Луковые кольца <span class="item-volume">(200гр)</span></span><span class="item-dots"></span><span class="item-price">300р</span></div>
+                                <div class="menu-item"><span class="item-name">Рыбные палочки <span class="item-volume">(200гр)</span></span><span class="item-dots"></span><span class="item-price">350р</span></div>
+                                <div class="menu-item"><span class="item-name">Наггетсы куриные <span class="item-volume">(200гр)</span></span><span class="item-dots"></span><span class="item-price">350р</span></div>
+                                <div class="menu-item"><span class="item-name">Стрипсы куриные <span class="item-volume">(200гр)</span></span><span class="item-dots"></span><span class="item-price">400р</span></div>
+                                <div class="menu-item"><span class="item-name">Сырные палочки <span class="item-volume">(200гр)</span></span><span class="item-dots"></span><span class="item-price">400р</span></div>
+                                <div class="menu-item"><span class="item-name">Камамбер во фритюре <span class="item-volume">(200гр)</span></span><span class="item-dots"></span><span class="item-price">550р</span></div>
+                                <div class="menu-item"><span class="item-name">Крылышки куриные <span class="item-volume">(300гр)</span></span><span class="item-dots"></span><span class="item-price">600р</span></div>
+                                <div class="menu-item"><span class="item-name">Кольца кальмара <span class="item-volume">(200гр)</span></span><span class="item-dots"></span><span class="item-price">450р</span></div>
+                                <div class="menu-item"><span class="item-name">Хрустящие креветки <span class="item-volume">(200гр)</span></span><span class="item-dots"></span><span class="item-price">650р</span></div>
+                            </div>
+                        </div>
+
+                        <!-- ПОД-КНОПКА 3: КАЛЬЯНЫ -->
                         <div onclick="toggleSubMenu('hookah-sub', this)" class="btn-sub">
                             <span>Паровые коктейли</span><span class="arrow">▼</span>
                         </div>
@@ -221,43 +269,18 @@
                             </div>
                         </div>
 
-                        <!-- ПОД-КНОПКА 3: ЗАКУСКИ & ФРИТЮР -->
-                        <div onclick="toggleSubMenu('snacks-sub', this)" class="btn-sub">
-                            <span>Закуски & Горячий Фритюр</span><span class="arrow">▼</span>
-                        </div>
-                        <div id="snacks-sub" class="sub-menu-collapse">
-                            <div class="category-block">
-                                <div class="sub-category-title">Холодные закуски</div>
-                                <div class="menu-item"><span class="item-name">Сухарики (100гр)</span><span class="item-dots"></span><span class="item-price">250р</span></div>
-                                <div class="menu-item"><span class="item-name">Начос (70гр)</span><span class="item-dots"></span><span class="item-price">250р</span></div>
-                                <div class="menu-item"><span class="item-name">Арахис (100гр)</span><span class="item-dots"></span><span class="item-price">200р</span></div>
-                                <div class="menu-item"><span class="item-name">Кальмар (50гр)</span><span class="item-dots"></span><span class="item-price">300р</span></div>
-                                <div class="menu-item"><span class="item-name">Сыр косичка (50гр)</span><span class="item-dots"></span><span class="item-price">200р</span></div>
-                                <div class="menu-item"><span class="item-name">Фисташки (100гр)</span><span class="item-dots"></span><span class="item-price">350р</span></div>
-                                
-                                <div class="sub-category-title" style="margin-top:12px;">Горячий Фритюр</div>
-                                <div class="menu-item"><span class="item-name">Картофель фри (200гр)</span><span class="item-dots"></span><span class="item-price">280р</span></div>
-                                <div class="menu-item"><span class="item-name">Картофель Айдахо (200гр)</span><span class="item-dots"></span><span class="item-price">280р</span></div>
-                                <div class="menu-item"><span class="item-name">Чесночные гренки (200гр)</span><span class="item-dots"></span><span class="item-price">280р</span></div>
-                                <div class="menu-item"><span class="item-name">Луковые кольца (200гр)</span><span class="item-dots"></span><span class="item-price">300р</span></div>
-                                <div class="menu-item"><span class="item-name">Рыбные палочки (200гр)</span><span class="item-dots"></span><span class="item-price">350р</span></div>
-                                <div class="menu-item"><span class="item-name">Нагетсы куриные (200гр)</span><span class="item-dots"></span><span class="item-price">350р</span></div>
-                                <div class="menu-item"><span class="item-name">Стрипсы куриные (200гр)</span><span class="item-dots"></span><span class="item-price">400р</span></div>
-                                <div class="menu-item"><span class="item-name">Сырные палочки (200гр)</span><span class="item-dots"></span><span class="item-price">400р</span></div>
-                                <div class="menu-item"><span class="item-name">Камамбер (200гр)</span><span class="item-dots"></span><span class="item-price">550р</span></div>
-                                <div class="menu-item"><span class="item-name">Крылышки куриные (300гр)</span><span class="item-dots"></span><span class="item-price">600р</span></div>
-                                <div class="menu-item"><span class="item-name">Кольца кальмара (200гр)</span><span class="item-dots"></span><span class="item-price">450р</span></div>
-                                <div class="menu-item"><span class="item-name">Креветки (200гр)</span><span class="item-dots"></span><span class="item-price">650р</span></div>
-                            </div>
-                        </div>
-
                         <!-- ПОД-КНОПКА 4: ДЕСЕРТЫ -->
                         <div onclick="toggleSubMenu('desserts-sub', this)" class="btn-sub">
                             <span>Десерты</span><span class="arrow">▼</span>
                         </div>
                         <div id="desserts-sub" class="sub-menu-collapse">
                             <div class="category-block">
-                                <div class="menu-item"><span class="item-name">Чизкейк фирменный с ягодным дополнением на ваш выбор <span class="item-volume">(180гр)</span></span><span class="item-dots"></span><span class="item-price">430р</span></div>
+                                <div class="menu-item"><span class="item-name">Панкейк-десерт с топпингом на выбор</span><span class="item-dots"></span><span class="item-price">320 ₽</span></div>
+                                <div class="item-desc">Пышные свежеиспеченные панкейки. Топпинг на выбор: шоколад, карамель, сгущенка или ягоды</div>
+
+                                <div class="menu-item"><span class="item-name">Фирменный чизкейк с ягодным соусом <span class="item-volume">(180гр)</span></span><span class="item-dots"></span><span class="item-price">430 ₽</span></div>
+                                <div class="item-desc">Нежный творожно-сливочный чизкейк с ароматным ягодным дополнением на выбор</div>
+
                                 <div class="menu-item"><span class="item-name">Шарик мороженого <span class="item-volume">(70гр)</span></span><span class="item-dots"></span><span class="item-price">150р</span></div>
                             </div>
                         </div>
@@ -268,7 +291,7 @@
             <!-- Кнопка 4: Барное меню -->
             <div onclick="toggleMainMenu('bar-menu', this)" class="btn btn-standard btn-menu">
                 <span class="btn-title" style="font-weight:600;">Коктейльная и барная карта</span>
-                <span class="btn-subtitle" style="color:rgba(197,160,89,0.7);">Алкогольные и безалкогольные напитки</span>
+                <span class="btn-subtitle" style="color:rgba(197,160,89,0.7);">Алкоголь, снеки к пиву и чайная коллекция</span>
             </div>
 
             <!-- Выезжающее Барное Меню -->
@@ -329,7 +352,7 @@
                                 <div class="item-desc">Немецкий ликёр на травах Ягермейстер, энергетик</div>
                             </div>
 
-                            <!-- Домашние настойки (Цена 200 ₽) -->
+                            <!-- Домашние настойки (200 ₽) -->
                             <div onclick="toggleLevel3('tinctures-l3', this)" class="btn-level3">
                                 <span>Домашние настойки</span><span class="arrow">▼</span>
                             </div>
@@ -349,7 +372,8 @@
                                 <div class="menu-item"><span class="item-name">Лимончелло <span class="item-volume">(50мл)</span></span><span class="item-dots"></span><span class="item-price">200 ₽</span></div>
                                 <div class="taste-tag">Цитрусовый • Освежающий</div>
                                 <div class="item-desc">Классический домашний лимончелло на отборной лимонной цедре. Яркий цитрусовый взрыв с бархатистой деликатной сладостью</div>
-                             </div>
+                            
+                            </div>
 
                             <!-- Шот сеты -->
                             <div onclick="toggleLevel3('shots-l3', this)" class="btn-level3">
@@ -369,7 +393,7 @@
                                 <div class="item-desc" style="margin-bottom:0; padding-bottom:0;">Б-53: крепость и богатый аромат (подача на баре)</div>
                             </div>
 
-                            <!-- Пиво с подробными описаниями -->
+                            <!-- Пивная карта -->
                             <div onclick="toggleLevel3('beer-l3', this)" class="btn-level3">
                                 <span>Пивная карта</span><span class="arrow">▼</span>
                             </div>
@@ -453,7 +477,22 @@
                             </div>
                         </div>
 
-                        <!-- ПОД-КНОПКА 2: БЕЗАЛКОГОЛЬНЫЕ НАПИТКИ -->
+                        <!-- ПОД-КНОПКА 2: СНЕКИ & ЗАКУСКИ К ПИВУ (ПЕРЕНЕСЕНО СЮДА) -->
+                        <div onclick="toggleSubMenu('beer-snacks-sub', this)" class="btn-sub">
+                            <span>Снеки & Закуски к пиву</span><span class="arrow">▼</span>
+                        </div>
+                        <div id="beer-snacks-sub" class="sub-menu-collapse">
+                            <div class="category-block">
+                                <div class="menu-item"><span class="item-name">Сухарики <span class="item-volume">(100гр)</span></span><span class="item-dots"></span><span class="item-price">250р</span></div>
+                                <div class="menu-item"><span class="item-name">Начос <span class="item-volume">(70гр)</span></span><span class="item-dots"></span><span class="item-price">250р</span></div>
+                                <div class="menu-item"><span class="item-name">Арахис солёный <span class="item-volume">(100гр)</span></span><span class="item-dots"></span><span class="item-price">200р</span></div>
+                                <div class="menu-item"><span class="item-name">Кальмар сушеный <span class="item-volume">(50гр)</span></span><span class="item-dots"></span><span class="item-price">300р</span></div>
+                                <div class="menu-item"><span class="item-name">Сыр косичка копчёный <span class="item-volume">(50гр)</span></span><span class="item-dots"></span><span class="item-price">200р</span></div>
+                                <div class="menu-item"><span class="item-name">Отборные фисташки <span class="item-volume">(100гр)</span></span><span class="item-dots"></span><span class="item-price">350р</span></div>
+                            </div>
+                        </div>
+
+                        <!-- ПОД-КНОПКА 3: БЕЗАЛКОГОЛЬНЫЕ НАПИТКИ -->
                         <div onclick="toggleSubMenu('bezalco-sub', this)" class="btn-sub">
                             <span>Безалкогольные напитки</span><span class="arrow">▼</span>
                         </div>
@@ -570,7 +609,7 @@
         </div>
     </div>
 
-    <!-- Безупречная анимация аккордеонов -->
+    <!-- Анимация аккордеонов -->
     <script>
         function openCollapse(el) {
             el.classList.add('open');
