@@ -185,9 +185,16 @@
                     <div class="sub-btn-grid">
                         <!-- ПОД-КНОПКА 1: КУХНЯ & ОСНОВНЫЕ БЛЮДА -->
                         <div onclick="toggleSubMenu('kitchen-sub', this)" class="btn-sub">
-                            <span>Кухня & Основные блюда</span><span class="arrow">▼</span>
+                            <div style="display:flex; flex-direction:column; align-items:flex-start; text-align:left;">
+                                <span>Кухня & Основные блюда</span>
+                                <span style="font-size:9px; color:#c5a059; font-weight:400; margin-top:2px;">Работает с 19:00 • Фритюр весь день</span>
+                            </div>
+                            <span class="arrow">▼</span>
                         </div>
                         <div id="kitchen-sub" class="sub-menu-collapse">
+                            <div style="font-size:10px; color:#c5a059; text-align:center; margin-bottom:12px; padding:6px 10px; background:rgba(197,160,89,0.08); border-radius:6px; border:1px dashed rgba(197,160,89,0.3); font-weight:500;">
+                                Заказы по кухне принимаются с 19:00 • Горячий фритюр доступен весь день
+                            </div>
                             <div class="category-block">
                                 <div class="sub-category-title special-brew-title">Горячие Супы</div>
                                 
